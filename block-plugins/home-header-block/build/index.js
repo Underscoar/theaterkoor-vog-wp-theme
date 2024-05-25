@@ -117,12 +117,35 @@ function Edit(props) {
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Verwijder afbeelding', 'awp'))))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("header", {
     className: "home-header purple-wall"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "container"
+    className: "header-left"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    ...innerBlocksProps
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
-    allowedBlocks: ALLOWED_BLOCKS
-  }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
+    className: "header-content"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: "opacity-0 pre-hidden"
+  }, "Wij zijn"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: "opacity-0 pre-hidden"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, "Theaterkoor VOG"), "."), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: "opacity-0 pre-hidden"
+  }, "Musical,"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: "opacity-0 pre-hidden"
+  }, "operette, en theater"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: "opacity-0 pre-hidden"
+  }, "in Venlo.")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "content-content"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: "opacity-0 pre-hidden"
+  }, "Een vereniging voor jong en oud, Theaterkoor VOG onderscheidt zich in zijn uiteenlopende producties. Van kleine concerten tot grote musicals in uitverkochte theaterzalen. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: " opacity-0 pre-hidden"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    className: "btn btn-primary",
+    href: "#"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "Lees meer over ons"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+    className: "ph ph-arrow-right"
+  })))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "header-right"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "img-wrap"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
     onSelect: onSelectMedia,
     value: attributes.mediaId,
     allowedTypes: ['image'],
@@ -134,7 +157,7 @@ function Edit(props) {
     }, attributes.mediaUrl != '' && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
       src: attributes.mediaUrl
     }))
-  }))));
+  }))))));
 }
 function Save(props) {
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks.Content, null);

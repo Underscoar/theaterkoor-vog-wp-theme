@@ -33,9 +33,11 @@
   padding-right: clamp(24px, 20vw, 250px);
   padding-left: 4.5rem;
   padding-right: 4.5rem;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 60vw;
 }
 
 .home-header .header-left .content-content {
@@ -50,11 +52,18 @@
   display: flex;
   flex-shrink: 0;
   margin-left: auto;
+  flex-grow: 1;
   width: 40vw;
+}
+
+.home-header .header-right .simpleParallax {
+  height: 100%;
 }
 
 .home-header .header-right .img-wrap img {
   height: 100%;
+  -o-object-position: left;
+     object-position: left;
 }
 /*!******************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!../../assets/css/style.css ***!
@@ -62,6 +71,7 @@
 :root {
     --purple: #BE356D;
     --grey: #D8D8D8;
+    --creme: #FFFFEA;
 }
 
 ::-moz-selection { background: var(--purple); color: #fff; }
@@ -71,23 +81,10 @@
 .purple-wall ::selection { color: var(--purple); background: #fff; }
 
 html { scroll-behavior: smooth; }
-body { font-family: 'Inter'; }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: initial; } }
-/* body { font-family: 'Inter'; } */
 body.modal-open { overflow: hidden; }
 
-h1 { font-family: 'Newsreader'; }
-h2 {  }
-h3 {  }
 
-[role="doc-subtitle"] {  }
-
-hr {  }
-
-p,
-ul { line-height: 1.8; }
-a {  }
-a:hover {  }
 
 /* ul { list-style: none; padding-left: 0; }
 ul li { position: relative; padding-left: 1.5rem; margin-bottom: 0.5rem; }
@@ -100,13 +97,17 @@ ul li::before { content: "\ea30"; font-family: "Phosphor-Bold"; position: absolu
 .btn-primary:focus-visible { background: var(--orange); color: #fff; border-color: var(--orange); box-shadow: 0 0 0 0.25rem rgba(255 124 50 / 20%); }
 .btn-primary:active:focus:focus-visible { background: var(--orange); } */
 
+.btn-primary { color: var(--creme); font-weight: 700; display: inline-flex; align-items: center; gap: 1rem; }
+.btn-primary i.ph-arrow-right { width: 2rem; height: 2rem; border-radius: 50%; border: 1px solid var(--creme); flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: background-color 0.3s, transform 0.3s; }
+.btn-primary:hover {  }
+.btn-primary:hover span { text-decoration: underline; }
+.btn-primary:hover i.ph-arrow-right { transform: translateX(0.25rem); color: #000; background: var(--creme); }
+
 .center-title {  }
 .text-center { text-align: center; }
 
 .purple-wall { background: var(--purple); }
 
-
-main { scroll-margin-top: 150px; overflow: hidden; }
 
 
 /* .wpcf7-form {  }

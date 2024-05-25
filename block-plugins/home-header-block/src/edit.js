@@ -107,28 +107,49 @@ export function Edit(props) {
 				</Panel>
 			</InspectorControls>
 			<header className="home-header purple-wall">
-				<div className="container">
-					<div {...innerBlocksProps}>
-						<InnerBlocks allowedBlocks={ ALLOWED_BLOCKS } />
+				<div className="header-left">
+					<div className="header-content">
+						<h1>
+							<span className="opacity-0 pre-hidden">Wij zijn</span><br />
+							<span className="opacity-0 pre-hidden"><strong>Theaterkoor VOG</strong>.</span><br />
+							<span className="opacity-0 pre-hidden">Musical,</span><br />
+							<span className="opacity-0 pre-hidden">operette, en theater</span><br />
+							<span className="opacity-0 pre-hidden">in Venlo.</span>
+						</h1>
+						<div className="content-content">
+							<p className="opacity-0 pre-hidden">Een vereniging voor jong en oud, Theaterkoor VOG onderscheidt zich in zijn uiteenlopende producties. Van kleine concerten tot grote musicals in uitverkochte theaterzalen. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
+							<p className=" opacity-0 pre-hidden">
+								<a className="btn btn-primary" href="#">
+									<span>
+										Lees meer over ons
+									</span>
+									<i className="ph ph-arrow-right"></i>
+								</a>
+							</p>
+						</div>
 					</div>
 				</div>
-				<MediaUploadCheck>
-					<MediaUpload
-						onSelect={onSelectMedia}
-						value={attributes.mediaId}
-						allowedTypes={ ['image'] }
-						render={({open}) => (
-							<Button
-								onClick={open}
-								className={attributes.mediaId == 0 ? 'editor-post-featured-image__toggle' : 'editor-post-featured-image__preview'}
-							>
-								{attributes.mediaUrl != '' &&
-									<img src={attributes.mediaUrl} />
-								}
-							</Button>
-						)}
-					/>
-				</MediaUploadCheck>
+				<div className="header-right">
+					<div className="img-wrap">
+						<MediaUploadCheck>
+							<MediaUpload
+								onSelect={onSelectMedia}
+								value={attributes.mediaId}
+								allowedTypes={ ['image'] }
+								render={({open}) => (
+									<Button
+										onClick={open}
+										className={attributes.mediaId == 0 ? 'editor-post-featured-image__toggle' : 'editor-post-featured-image__preview'}
+									>
+										{attributes.mediaUrl != '' &&
+											<img src={attributes.mediaUrl} />
+										}
+									</Button>
+								)}
+							/>
+						</MediaUploadCheck>
+					</div>
+				</div>
 			</header>
 		</div>
 	);

@@ -27,6 +27,7 @@ function neonweb_register_styles() {
 	wp_enqueue_style('theaterkoorvog-bootstrap-grid-custom', get_template_directory_uri() . '/assets/css/bootstrap-grid-custom.css', array('theaterkoorvog-reset'), $version, 'all');
 	wp_enqueue_style('theaterkoorvog-custom', get_template_directory_uri() . '/assets/css/custom.css', array('theaterkoorvog-bootstrap-grid-custom'), $version, 'all');
 	wp_enqueue_style('theaterkoorvog-style', get_template_directory_uri() . '/assets/css/style.css', array('theaterkoorvog-custom'), $version, 'all');
+	wp_enqueue_style('theaterkoorvog-style-render-only', get_template_directory_uri() . '/assets/css/style-render-only.css', array('theaterkoorvog-custom'), $version, 'all');
 	wp_enqueue_style('theaterkoorvog-wp-style', get_template_directory_uri() . '/style.css', array('theaterkoorvog-style'), $version, 'all');
 	
 	if ( basename($template) !== 'front-page.php' ) {
@@ -39,6 +40,7 @@ add_action('wp_enqueue_scripts', 'neonweb_register_styles');
 
 function neonweb_register_scripts() {
 	$version = wp_get_theme()->get('Version');
+	wp_enqueue_script('simpleParallax', 'https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js', null, null, true);
 	wp_enqueue_script('theaterkoorvog-main', get_template_directory_uri() . '/assets/js/main.js', array(), $version, 'all');
 }
 

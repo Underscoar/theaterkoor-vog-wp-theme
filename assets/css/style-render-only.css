@@ -1,0 +1,16 @@
+body { font-family: 'Inter'; }
+
+h1 { font-family: 'Newsreader'; }
+h2 {  }
+h3 {  }
+
+[role="doc-subtitle"] {  }
+
+hr {  }
+
+p,
+ul { line-height: 1.8; }
+a {  }
+a:hover {  }
+
+main { scroll-margin-top: 150px; overflow: hidden; }

@@ -19,6 +19,14 @@
 			</h1>
 			<div class="content-content">
 				<p class="opacity-0 pre-hidden">Een vereniging voor jong en oud, Theaterkoor VOG onderscheidt zich in zijn uiteenlopende producties. Van kleine concerten tot grote musicals in uitverkochte theaterzalen. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
+				<p class=" opacity-0 pre-hidden">
+					<a class="btn btn-primary" href="#">
+						<span>
+							Lees meer over ons
+						</span>
+						<i class="ph ph-arrow-right"></i>
+					</a>
+				</p>
 			</div>
 		</div>
 	</div>

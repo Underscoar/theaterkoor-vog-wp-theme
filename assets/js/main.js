@@ -71,10 +71,15 @@ observer.observe(target);
 
 async function showMainTitle() {
     const allItems = document.querySelectorAll('.home-header h1 span, .home-header .content-content > *')
-    console.log(allItems)
 
     for (let i=0; i<allItems.length; i++) {
         allItems[i].classList.remove('opacity-0')
         await new Promise(resolve => setTimeout(resolve, 125))
     }
 }
+
+const headerImg = document.querySelectorAll('.header-right img');
+new simpleParallax(headerImg, {
+	orientation: 'left',
+    delay: 1,
+});
