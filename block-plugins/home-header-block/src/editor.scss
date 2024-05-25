@@ -1,0 +1,12 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+ @import "../../../assets/css/bootstrap-grid-custom.css";
+ @import "../../../assets/css/style.css";
+
+.wp-block-create-block-home-header-block {
+	border: 1px dotted #f00;
+}

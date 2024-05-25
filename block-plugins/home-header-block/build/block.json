@@ -1,0 +1,54 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "create-block/home-header-block",
+  "version": "0.1.0",
+  "title": "Home Header Block",
+  "category": "theaterkoorvog-blocks",
+  "icon": "admin-home",
+  "description": "Standaard blok voor de header van de homepagina.",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Paginatitel"
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Subtitel"
+    },
+    "content": {
+      "type": "string",
+      "default": ""
+    },
+    "mediaId": {
+      "type": "number",
+      "default": 0
+    },
+    "mediaUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "mediaWidth": {
+      "type": "number",
+      "default": 0
+    },
+    "mediaHeight": {
+      "type": "number",
+      "default": 0
+    },
+    "innerBlocks": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "textdomain": "home-header-block",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}
