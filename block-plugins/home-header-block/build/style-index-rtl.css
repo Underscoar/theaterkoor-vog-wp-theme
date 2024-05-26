@@ -30,14 +30,14 @@
 
 .home-header .header-left {
   padding-top: 5.25rem;
-  padding-left: clamp(24px, 20vw, 250px);
+  padding-left: clamp(24px, 20%, 250px);
   padding-right: 4.5rem;
   padding-left: 4.5rem;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 60vw;
+  width: 60%;
 }
 
 .home-header .header-left .content-content {
@@ -50,10 +50,8 @@
 
 .home-header .header-right {
   display: flex;
-  flex-shrink: 0;
   margin-right: auto;
-  flex-grow: 1;
-  width: 40vw;
+  width: 40%;
 }
 
 .home-header .header-right .simpleParallax {
@@ -107,6 +105,15 @@ ul li::before { content: "\ea30"; font-family: "Phosphor-Bold"; position: absolu
 .text-center { text-align: center; }
 
 .purple-wall { background: var(--purple); }
+
+nav.navbar { position: fixed; width: 100%; z-index: 10; color: #fff; }
+nav.navbar .nav-wrap { display: flex; justify-content: space-between; gap: 1rem; padding: 1rem 0; align-items: center; }
+nav button.menu-toggle { width: 2.5rem; height: 2.5rem; border-radius: 50%; border: 2px solid #fff; padding: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.25rem; background: none; color: #fff; outline: none; transition: border-color 0.3s, background-color 0.3s; }
+nav button.menu-toggle:hover { cursor: pointer; border-color: var(--purple); background: rgb(255 255 255 / 25%); }
+nav button.menu-toggle:active,
+nav button.menu-toggle:focus { background: rgba(190, 53, 109, 0.8); color: #fff; border-color: var(--purple); box-shadow: 0 0 0 0.25rem rgba(190, 53, 109, 0.5); }
+nav button.menu-toggle:active:focus { background: var(--purple); }
+nav button.menu-toggle .hamburger-line { border-top: 1px solid #fff; width: 50%; transition: border-color 0.3s; }
 
 
 

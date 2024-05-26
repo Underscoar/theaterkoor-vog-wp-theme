@@ -80,10 +80,10 @@ add_theme_support('align-wide');
 // include('inc/social-menu-walker.php');
 
 include('block-plugins/home-header-block/home-header-block.php');
-// include('block-plugins/voetreflex-contact-block/voetreflex-contact-block.php');
+include('block-plugins/vog-buttons-block/vog-buttons-block.php');
 // include('block-plugins/voetreflex-text-image-block/voetreflex-text-image-block.php');
 // include('block-plugins/voetreflex-services-list-block/voetreflex-services-list-block.php');
-// include('block-plugins/voetreflex-buttons-block/voetreflex-buttons-block.php');
+// include('block-plugins/voetreflex-vog-buttons-block/voetreflex-vog-buttons-block.php');
 // include('block-plugins/voetreflex-title-block/voetreflex-title-block.php');
 // include('block-plugins/voetreflex-contact-items-block/voetreflex-contact-items-block.php');
 ?>

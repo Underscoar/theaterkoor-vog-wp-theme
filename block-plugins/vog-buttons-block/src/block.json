@@ -1,47 +1,43 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "create-block/home-header-block",
+	"name": "create-block/vog-buttons-block",
 	"version": "0.1.0",
-	"title": "Home Header Block",
+	"title": "Buttons Block",
 	"category": "theaterkoorvog-blocks",
 	"icon": "admin-home",
-	"description": "Standaard blok voor de header van de homepagina.",
+	"description": "Standaard blok voor alle buttons.",
 	"example": {},
 	"supports": {
 		"html": false
 	},
 	"attributes": {
-		"title": {
-			"type": "string",
-			"default": "Paginatitel"
-		},
 		"content": {
 			"type": "string",
-			"default": ""
+			"default": "Button"
 		},
-		"mediaId": {
-			"type": "number",
-			"default": 0
+		"link": {
+			"type": "string",
+			"default": "/"
 		},
-		"mediaUrl": {
+		"linkTitle": {
 			"type": "string",
 			"default": ""
 		},
-		"mediaWidth": {
-			"type": "number",
-			"default": 0
+		"btnType": {
+			"type": "string",
+			"default": "btn btn-primary"
 		},
-		"mediaHeight": {
-			"type": "number",
-			"default": 0
+		"isTargetBlank": {
+			"type": "boolean",
+			"default": false
 		},
-		"innerBlocks": {
-			"type": "array",
-			"default": []
+		"withArrow": {
+			"type": "boolean",
+			"default": false
 		}
 	},
-	"textdomain": "home-header-block",
+	"textdomain": "vog-buttons-block",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",

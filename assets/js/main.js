@@ -16,39 +16,50 @@ const body = document.querySelector('body');
 // checkScrollPos();
 
 
-// document.querySelector('.menu-toggle').addEventListener('click', openMenu)
-// document.querySelector('.close-btn').addEventListener('click', closeMenu)
+document.querySelector('.menu-toggle').addEventListener('click', toggleMenu)
+document.querySelector('.overlay-wall').addEventListener('click', closeMenu)
 
-// function openMenu() {
-//     document.querySelector('.mobile-menu').style.display='block';
-//     body.style.paddingRight = getScrollbarWidth() + 'px';
-//     body.classList.add('modal-open');
-//     setTimeout(function() {
-//         document.querySelector('.mobile-menu').classList.add('active');
-//     }, 5);
-// }
-// function closeMenu() {
-//     document.querySelector('.mobile-menu').classList.remove('active');
+function toggleMenu() {
+    if (!body.classList.contains('modal-open')) {
+        openMenu()
+    }
+    else {
+        closeMenu()
+    }
+}
 
-//     setTimeout(function() {
-//         body.classList.remove('modal-open');
-//         body.style.paddingRight = '0';
-//         document.querySelector('.mobile-menu').style.display='none';
-//     }, 300);
-// }
+function openMenu() {
+    document.querySelector('.full-menu').style.display='block'
+    document.querySelector('.menu-toggle').classList.add('toggled')
+    body.style.paddingRight = getScrollbarWidth() + 'px'
+    body.classList.add('modal-open');
+    setTimeout(function() {
+        document.querySelector('.full-menu').classList.add('active')
+    }, 5);
+}
+function closeMenu() {
+    document.querySelector('.full-menu').classList.remove('active')
+    document.querySelector('.menu-toggle').classList.remove('toggled')
 
-// function getScrollbarWidth() {
-//     return window.innerWidth - document.documentElement.clientWidth;
-// }
+    setTimeout(function() {
+        body.classList.remove('modal-open')
+        body.style.paddingRight = '0'
+        document.querySelector('.full-menu').style.display='none'
+    }, 600);
+}
+
+function getScrollbarWidth() {
+    return window.innerWidth - document.documentElement.clientWidth
+}
 
 
-// document.addEventListener("keydown", (e) => {
-//     if (body.classList.contains('modal-open')) {
-//         if (e.key == 'Escape') {
-//             closeMenu();
-//         }
-//     }
-// });
+document.addEventListener("keydown", (e) => {
+    if (body.classList.contains('modal-open')) {
+        if (e.key == 'Escape') {
+            closeMenu()
+        }
+    }
+});
 
 
 let callback = (entries, observer) => {

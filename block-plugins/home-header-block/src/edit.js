@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, useInnerBlocksProps, InnerBlocks, InspectorControls, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
+import { useBlockProps, useInnerBlocksProps, InnerBlocks, InspectorControls, MediaUpload, MediaUploadCheck, RichText } from '@wordpress/block-editor';
 import { Panel, PanelBody, Button } from '@wordpress/components';
 
 /**
@@ -35,13 +35,13 @@ export function Edit(props) {
 	const blockProps = useBlockProps();
 	const innerBlocksProps = useInnerBlocksProps();
 	const ALLOWED_BLOCKS = [
-		'core/list',
 		'core/paragraph',
-		'core/heading',
-		'core/list',
-		'core/quote',
-		'core/details',
-		'core/table',
+		'create-block/vog-buttons-block',
+		// 'core/heading',
+		// 'core/list',
+		// 'core/quote',
+		// 'core/details',
+		// 'core/table',
 	];
 
 	const removeMedia = () => {
@@ -75,11 +75,18 @@ export function Edit(props) {
 									allowedTypes={ ['image'] }
 									render={({open}) => (
 										<Button 
-											className={attributes.mediaId == 0 ? 'editor-post-featured-image__toggle' : 'editor-post-featured-image__preview'}
+											className={`mb-3 ${attributes.mediaId == 0 ? 'editor-post-featured-image__toggle' : 'editor-post-featured-image__preview'}`}
 											onClick={open}
 										>
 											{attributes.mediaId == 0 && __('Kies een afbeelding', 'awp')}
-											<img src={attributes.mediaUrl} />
+											<div className="media-wrap">
+												<img src={attributes.mediaUrl} />
+												<div className="select-image-overlay">
+													<span className="pseudo-btn">
+														Selecteer afbeelding
+													</span>
+												</div>
+											</div>
 										</Button>
 									)}
 								/>
@@ -99,7 +106,7 @@ export function Edit(props) {
 							}
 							{attributes.mediaId != 0 && 
 								<MediaUploadCheck>
-									<Button onClick={removeMedia} isLink isDestructive>{__('Verwijder afbeelding', 'awp')}</Button>
+									<Button className="mt-3" onClick={removeMedia} isLink isDestructive>{__('Verwijder afbeelding', 'awp')}</Button>
 								</MediaUploadCheck>
 							}
 						</div>
@@ -109,23 +116,17 @@ export function Edit(props) {
 			<header className="home-header purple-wall">
 				<div className="header-left">
 					<div className="header-content">
-						<h1>
-							<span className="opacity-0 pre-hidden">Wij zijn</span><br />
-							<span className="opacity-0 pre-hidden"><strong>Theaterkoor VOG</strong>.</span><br />
-							<span className="opacity-0 pre-hidden">Musical,</span><br />
-							<span className="opacity-0 pre-hidden">operette, en theater</span><br />
-							<span className="opacity-0 pre-hidden">in Venlo.</span>
-						</h1>
+						<RichText
+							tagName="h1"
+							value={ attributes.title }
+							allowedFormats={ ['core/bold', 'core/italic'] }
+							onChange={ ( title ) => setAttributes( { title } ) }
+							placeholder={ __( 'Titel...' ) }
+						/>
 						<div className="content-content">
-							<p className="opacity-0 pre-hidden">Een vereniging voor jong en oud, Theaterkoor VOG onderscheidt zich in zijn uiteenlopende producties. Van kleine concerten tot grote musicals in uitverkochte theaterzalen. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
-							<p className=" opacity-0 pre-hidden">
-								<a className="btn btn-primary" href="#">
-									<span>
-										Lees meer over ons
-									</span>
-									<i className="ph ph-arrow-right"></i>
-								</a>
-							</p>
+							<div {...innerBlocksProps}>
+								<InnerBlocks allowedBlocks={ ALLOWED_BLOCKS } />
+							</div>
 						</div>
 					</div>
 				</div>
@@ -142,7 +143,17 @@ export function Edit(props) {
 										className={attributes.mediaId == 0 ? 'editor-post-featured-image__toggle' : 'editor-post-featured-image__preview'}
 									>
 										{attributes.mediaUrl != '' &&
-											<img src={attributes.mediaUrl} />
+											<div className="media-wrap">
+												<img src={attributes.mediaUrl} />
+												<div className="select-image-overlay">
+													<span className="pseudo-btn">
+														Selecteer afbeelding
+													</span>
+												</div>
+											</div>
+										}
+										{attributes.mediaUrl == '' &&
+											<div className="no-image">Geen afbeelding geselecteerd</div>
 										}
 									</Button>
 								)}

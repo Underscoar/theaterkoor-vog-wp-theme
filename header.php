@@ -34,37 +34,28 @@
     <meta name="theme-color" content="#BE356D">
 </head>
     <body>
-        <nav>
-            <!-- <div class="container">
+        <nav class="navbar">
+            <div class="container">
                 <div class="nav-wrap">
-                    <a href="/" class="logo-wrap">
-                        <?php
-                            if (function_exists('the_custom_logo')) {
-                                $custom_logo_id = get_theme_mod('custom_logo');
-                                $logo = wp_get_attachment_image_src($custom_logo_id, 'full');
-                            }
-                        ?>
-                            <img src="<?=$logo[0] ?>" alt="Logo - Voetreflex bij Anne-Mieke" title="Logo -Voetreflex bij Anne-Mieke" width="64" height="51">
-                    </a>
-
-                    <menu class="nav-items">
-                        <?php
-                            wp_nav_menu(
-                                array(
-                                    'menu' => 'primary',
-                                    'container' => '',
-                                    'theme_location' => 'primary',
-                                    'items_wrap' => '%3$s'
-                                )
-                            );
-                        ?>
-                    </menu>
-
+                    <span class="brand">Theaterkoor VOG</span>
                     <button class="menu-toggle" aria-label="Menu openen">
                       <span class="hamburger-line" aria-hidden="true"></span>
                       <span class="hamburger-line" aria-hidden="true"></span>
                       <span class="hamburger-line" aria-hidden="true"></span>
                     </button>
                 </div>
-            </div> -->
+            </div>
         </nav>
+
+        <div class="full-menu" tabindex="-1" role="dialog">
+            <div class="overlay-wall"></div>
+            <div class="modal-content">
+                <menu class="nav-items">
+                    <li><a href="/" aria-current=&quot;page&quot;>Home</a></li>
+                    <li><a href="/voetreflextherapie" >Voetreflextherapie</a></li>
+                    <li><a href="/voetreflexmassages" >Voetreflexmassages</a></li>
+                    <li><a href="/over-mij" >Over mij</a></li>
+                    <li><a href="/contact" >Contact</a></li>
+                </menu>
+            </div>
+        </div>

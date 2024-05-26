@@ -1,0 +1,22 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+ @import "../../../assets/css/bootstrap-grid-custom.css";
+ @import "../../../assets/css/style.css";
+ @import "https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap";
+
+ @import "https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css";
+ @import "https://unpkg.com/@phosphor-icons/web@2.1.1/src/thin/style.css";
+ @import "https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css";
+ @import "https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css";
+ @import "https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css";
+ @import "https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css";
+
+
+img {
+	max-width: 100%;
+	object-fit: cover;
+}

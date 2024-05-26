@@ -7,26 +7,27 @@
 	<?php esc_html_e( 'Home Header Block – hello from a dynamic block!', 'home-header-block' ); ?>
 </p> -->
 
-<header class="home-header purple-wall break-from-container">
+<header class="home-header purple-wall">
 	<div class="header-left">
 		<div class="header-content">
-			<h1>
-				<span class="opacity-0 pre-hidden">Wij zijn</span><br>
-				<span class="opacity-0 pre-hidden"><strong>Theaterkoor VOG</strong>.</span><br>
-				<span class="opacity-0 pre-hidden">Musical,</span><br>
-				<span class="opacity-0 pre-hidden">operette, en theater</span><br>
-				<span class="opacity-0 pre-hidden">in Venlo.</span>
-			</h1>
+			<?php
+				$titleString = '<span class="opacity-0 pre-hidden">' . str_replace('<br>', '</span><br><span class="opacity-0 pre-hidden">', $attributes['title']) . '</span>';
+			?>
+			<h1><?php echo $titleString; ?></h1>
 			<div class="content-content">
-				<p class="opacity-0 pre-hidden">Een vereniging voor jong en oud, Theaterkoor VOG onderscheidt zich in zijn uiteenlopende producties. Van kleine concerten tot grote musicals in uitverkochte theaterzalen. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
-				<p class=" opacity-0 pre-hidden">
-					<a class="btn btn-primary" href="#">
-						<span>
-							Lees meer over ons
-						</span>
-						<i class="ph ph-arrow-right"></i>
-					</a>
-				</p>
+				<?php
+					$dom = new DOMDocument();
+					$dom->loadHTML($content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+					$paragraphs = $dom->getElementsByTagName('p');
+					
+					
+					foreach ($paragraphs as $paragraph) {
+						$paragraph->setAttribute('class', 'opacity-0 pre-hidden');
+					}
+					
+					$finalHTML = $dom->saveHTML();
+				?>
+				<?php echo $finalHTML; ?>
 			</div>
 		</div>
 	</div>

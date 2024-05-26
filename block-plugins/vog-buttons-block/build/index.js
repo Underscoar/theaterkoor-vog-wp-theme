@@ -10,8 +10,7 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Edit: () => (/* binding */ Edit),
-/* harmony export */   Save: () => (/* binding */ Save)
+/* harmony export */   Edit: () => (/* binding */ Edit)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -60,121 +59,75 @@ function Edit(props) {
     attributes,
     setAttributes
   } = props;
-  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
-  const innerBlocksProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useInnerBlocksProps)();
-  const ALLOWED_BLOCKS = ['core/paragraph', 'create-block/vog-buttons-block'
-  // 'core/heading',
-  // 'core/list',
-  // 'core/quote',
-  // 'core/details',
-  // 'core/table',
-  ];
-  const removeMedia = () => {
-    props.setAttributes({
-      mediaId: 0,
-      mediaUrl: ''
-    });
-  };
-  const onSelectMedia = media => {
-    props.setAttributes({
-      mediaId: media.id,
-      mediaUrl: media.url,
-      mediaWidth: media.width,
-      mediaHeight: media.height
-    });
-  };
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    ...blockProps
+  const options = [{
+    name: 'Primary button',
+    key: 'btn btn-primary'
+  }];
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, {
     key: "setting"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Panel, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Selecteer headerafbeelding', 'awp'),
+    title: "Button instellingen",
     initialOpen: true
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "editor-post-featured-image"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
-    onSelect: onSelectMedia,
-    value: attributes.mediaId,
-    allowedTypes: ['image'],
-    render: ({
-      open
-    }) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
-      className: `mb-3 ${attributes.mediaId == 0 ? 'editor-post-featured-image__toggle' : 'editor-post-featured-image__preview'}`,
-      onClick: open
-    }, attributes.mediaId == 0 && (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Kies een afbeelding', 'awp'), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "media-wrap"
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-      src: attributes.mediaUrl
-    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "select-image-overlay"
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-      className: "pseudo-btn"
-    }, "Selecteer afbeelding"))))
-  })), attributes.mediaId != 0 && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Kies een andere afbeelding', 'awp'),
-    value: attributes.mediaId,
-    onSelect: onSelectMedia,
-    allowedTypes: ['image'],
-    render: ({
-      open
-    }) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
-      onClick: open,
-      isDefault: true,
-      isLarge: true
-    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Kies een andere afbeelding', 'awp'))
-  })), attributes.mediaId != 0 && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
-    className: "mt-3",
-    onClick: removeMedia,
-    isLink: true,
-    isDestructive: true
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Verwijder afbeelding', 'awp'))))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("header", {
-    className: "home-header purple-wall"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "header-left"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "header-content"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
-    tagName: "h1",
-    value: attributes.title,
-    allowedFormats: ['core/bold', 'core/italic'],
-    onChange: title => setAttributes({
-      title
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CustomSelectControl, {
+    className: "components-base-control blocks-base-control__input",
+    __nextUnconstrainedWidth: true,
+    label: "Button type",
+    options: options,
+    onChange: ({
+      selectedItem
+    }) => setAttributes({
+      btnType: selectedItem.key
     }),
-    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Titel...')
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "content-content"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    ...innerBlocksProps
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
-    allowedBlocks: ALLOWED_BLOCKS
-  }))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "header-right"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "img-wrap"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
-    onSelect: onSelectMedia,
-    value: attributes.mediaId,
-    allowedTypes: ['image'],
-    render: ({
-      open
-    }) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
-      onClick: open,
-      className: attributes.mediaId == 0 ? 'editor-post-featured-image__toggle' : 'editor-post-featured-image__preview'
-    }, attributes.mediaUrl != '' && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "media-wrap"
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-      src: attributes.mediaUrl
-    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "select-image-overlay"
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-      className: "pseudo-btn"
-    }, "Selecteer afbeelding"))), attributes.mediaUrl == '' && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "no-image"
-    }, "Geen afbeelding geselecteerd"))
-  }))))));
-}
-function Save(props) {
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks.Content, null);
+    value: options.find(option => option.key === attributes.btnType)
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    className: "blocks-base-control__input",
+    label: "Button tekst",
+    value: attributes.content,
+    onChange: val => setAttributes({
+      content: val
+    })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    className: "blocks-base-control__input",
+    label: "Link",
+    value: attributes.link,
+    onChange: val => setAttributes({
+      link: val
+    })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    className: "blocks-base-control__input",
+    label: "Link titel",
+    value: attributes.linkTitle,
+    onChange: val => setAttributes({
+      linkTitle: val
+    })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
+    label: "Openen in nieuw tabblad",
+    checked: attributes.isTargetBlank,
+    onChange: value => setAttributes({
+      isTargetBlank: value
+    })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
+    label: "Met pijl",
+    checked: attributes.withArrow,
+    onChange: value => setAttributes({
+      withArrow: value
+    })
+  })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "btn-wrap"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    tagName: "span",
+    className: attributes.btnType,
+    value: attributes.content,
+    allowedFormats: [],
+    onChange: content => setAttributes({
+      content
+    }),
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button tekst')
+  }), attributes.withArrow && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+    className: "ph ph-arrow-right"
+  })));
 }
 
 /***/ }),
@@ -226,14 +179,15 @@ __webpack_require__.r(__webpack_exports__);
    * @see ./edit.js
    */
   edit: _edit__WEBPACK_IMPORTED_MODULE_3__.Edit,
-  save: _edit__WEBPACK_IMPORTED_MODULE_3__.Save,
   icon: {
     src: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
       xmlns: "http://www.w3.org/2000/svg",
-      viewBox: "0 0 256 256",
-      fill: "currentColor"
+      width: "64",
+      height: "64",
+      fill: "#000000",
+      viewBox: "0 0 256 256"
     }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-      d: "M208,88H48a16,16,0,0,0-16,16v96a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V104A16,16,0,0,0,208,88Zm0,112H48V104H208v96ZM48,64a8,8,0,0,1,8-8H200a8,8,0,0,1,0,16H56A8,8,0,0,1,48,64ZM64,32a8,8,0,0,1,8-8H184a8,8,0,0,1,0,16H72A8,8,0,0,1,64,32Z"
+      d: "M80,120h96a8,8,0,0,1,0,16H80a8,8,0,0,1,0-16Zm24,48H64a40,40,0,0,1,0-80h40a8,8,0,0,0,0-16H64a56,56,0,0,0,0,112h40a8,8,0,0,0,0-16Zm88-96H152a8,8,0,0,0,0,16h40a40,40,0,0,1,0,80H152a8,8,0,0,0,0,16h40a56,56,0,0,0,0-112Z"
     }))
   }
 });
@@ -320,7 +274,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/home-header-block","version":"0.1.0","title":"Home Header Block","category":"theaterkoorvog-blocks","icon":"admin-home","description":"Standaard blok voor de header van de homepagina.","example":{},"supports":{"html":false},"attributes":{"title":{"type":"string","default":"Paginatitel"},"content":{"type":"string","default":""},"mediaId":{"type":"number","default":0},"mediaUrl":{"type":"string","default":""},"mediaWidth":{"type":"number","default":0},"mediaHeight":{"type":"number","default":0},"innerBlocks":{"type":"array","default":[]}},"textdomain":"home-header-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/vog-buttons-block","version":"0.1.0","title":"Buttons Block","category":"theaterkoorvog-blocks","icon":"admin-home","description":"Standaard blok voor alle buttons.","example":{},"supports":{"html":false},"attributes":{"content":{"type":"string","default":"Button"},"link":{"type":"string","default":"/"},"linkTitle":{"type":"string","default":""},"btnType":{"type":"string","default":"btn btn-primary"},"isTargetBlank":{"type":"boolean","default":false},"withArrow":{"type":"boolean","default":false}},"textdomain":"vog-buttons-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 
@@ -475,7 +429,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
 /******/ 			return __webpack_require__.O(result);
 /******/ 		}
 /******/ 		
-/******/ 		var chunkLoadingGlobal = globalThis["webpackChunkhome_header_block"] = globalThis["webpackChunkhome_header_block"] || [];
+/******/ 		var chunkLoadingGlobal = globalThis["webpackChunkvog_buttons_block"] = globalThis["webpackChunkvog_buttons_block"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 	})();
