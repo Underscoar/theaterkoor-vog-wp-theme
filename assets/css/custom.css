@@ -2,19 +2,11 @@
 
 .opacity-0 { opacity: 0; }
 
-/* .mbot-100 { margin-bottom: 100px; }
-.mtop-100 { margin-top: 100px; }
-.mbot-75 { margin-bottom: 75px; }
-.mtop-75 { margin-top: 75px; }
-.mbot-50 { margin-bottom: 50px; }
-.mtop-50 { margin-top: 50px; }
-
-.pbot-100 { padding-bottom: 100px; }
-.ptop-100 { padding-top: 100px; }
-.pbot-75 { padding-bottom: 75px; }
-.ptop-75 { padding-top: 75px; }
-.pbot-50 { padding-bottom: 50px; }
-.ptop-50 { padding-top: 50px; } */
+.mb-6 { margin-bottom: 3.25rem!important; }
+.mb-7 { margin-bottom: 3.5rem!important; }
+.mb-8 { margin-bottom: 3.75rem!important; }
+.mb-9 { margin-bottom: 4rem!important; }
+.mb-10 { margin-bottom: 4.25rem!important; }
 
 .btn { display: inline-block; font-family: 'Inter'; font-size: 1rem; font-weight: 400; line-height: 1; text-align: center; text-decoration: none; vertical-align: middle; cursor: pointer; user-select: none; border: none; transition: color 0.15s, background-color 0.15s, border-color 0.15s, box-shadow 0.15s; }
 .btn:focus-visible { outline: none; }

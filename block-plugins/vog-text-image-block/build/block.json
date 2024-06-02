@@ -1,12 +1,12 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "create-block/home-header-block",
+  "name": "create-block/vog-text-image-block",
   "version": "0.1.0",
-  "title": "Home Header",
+  "title": "Standaard tekst-afbeelding block",
   "category": "theaterkoorvog-blocks",
   "icon": "admin-home",
-  "description": "Standaard blok voor de header van de homepagina.",
+  "description": "Standaard blok voor het weergeven van tekst en een afbeelding.",
   "example": {},
   "supports": {
     "html": false
@@ -14,11 +14,11 @@
   "attributes": {
     "title": {
       "type": "string",
-      "default": "Paginatitel"
+      "default": "Sectietitel"
     },
-    "content": {
+    "order": {
       "type": "string",
-      "default": ""
+      "default": "TextImage"
     },
     "mediaId": {
       "type": "number",
@@ -41,7 +41,7 @@
       "default": []
     }
   },
-  "textdomain": "home-header-block",
+  "textdomain": "vog-text-image-block",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",

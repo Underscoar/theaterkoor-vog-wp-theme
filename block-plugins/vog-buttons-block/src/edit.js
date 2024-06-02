@@ -35,10 +35,16 @@ export function Edit(props) {
 
 	const options = [
 		{
-			name: 'Primary button',
+			name: 'Primary (paars)',
 			key: 'btn btn-primary',
 		},
+		{
+			name: 'Secondary (beige)',
+			key: 'btn btn-secondary',
+		},
 	];
+
+	const btnVariant = attributes.btnType.replace('btn btn-', 'variant-')
 
 	return (
 		<p {...useBlockProps()}>
@@ -84,7 +90,7 @@ export function Edit(props) {
 					</PanelBody>
 				</Panel>
 			</InspectorControls>
-			<div className="btn-wrap">
+			<div className={`btn-wrap ${btnVariant}`}>
 				<RichText
 					tagName="span"
 					className={attributes.btnType}

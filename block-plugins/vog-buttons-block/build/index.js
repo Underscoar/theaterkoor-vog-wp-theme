@@ -60,9 +60,13 @@ function Edit(props) {
     setAttributes
   } = props;
   const options = [{
-    name: 'Primary button',
+    name: 'Primary (paars)',
     key: 'btn btn-primary'
+  }, {
+    name: 'Secondary (beige)',
+    key: 'btn btn-secondary'
   }];
+  const btnVariant = attributes.btnType.replace('btn btn-', 'variant-');
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, {
@@ -115,7 +119,7 @@ function Edit(props) {
       withArrow: value
     })
   })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "btn-wrap"
+    className: `btn-wrap ${btnVariant}`
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
     tagName: "span",
     className: attributes.btnType,
@@ -274,7 +278,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/vog-buttons-block","version":"0.1.0","title":"Buttons Block","category":"theaterkoorvog-blocks","icon":"admin-home","description":"Standaard blok voor alle buttons.","example":{},"supports":{"html":false},"attributes":{"content":{"type":"string","default":"Button"},"link":{"type":"string","default":"/"},"linkTitle":{"type":"string","default":""},"btnType":{"type":"string","default":"btn btn-primary"},"isTargetBlank":{"type":"boolean","default":false},"withArrow":{"type":"boolean","default":false}},"textdomain":"vog-buttons-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/vog-buttons-block","version":"0.1.0","title":"Buttons","category":"theaterkoorvog-blocks","icon":"admin-home","description":"Standaard blok voor alle buttons.","example":{},"supports":{"html":false},"attributes":{"content":{"type":"string","default":"Button"},"link":{"type":"string","default":"/"},"linkTitle":{"type":"string","default":""},"btnType":{"type":"string","default":"btn btn-primary"},"isTargetBlank":{"type":"boolean","default":false},"withArrow":{"type":"boolean","default":false}},"textdomain":"vog-buttons-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 

@@ -1,7 +1,7 @@
 body { font-family: 'Inter'; }
 
 h1 { font-family: 'Newsreader'; }
-h2 {  }
+h2 { font-family: 'Newsreader'; font-size: 3.25rem; font-weight: 300; margin-bottom: 0.5em; }
 h3 {  }
 
 [role="doc-subtitle"] {  }

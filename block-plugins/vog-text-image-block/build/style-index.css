@@ -7,3 +7,18 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
+.text-img .row {
+  align-items: center;
+}
+
+.text-img .col-md-6 {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-img .content-wrap {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/*# sourceMappingURL=style-index.css.map*/

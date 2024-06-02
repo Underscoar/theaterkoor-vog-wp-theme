@@ -4,9 +4,3 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
-
- .btn-wrap { color: var(--creme); font-weight: 700; display: inline-flex; align-items: center; gap: 1rem; }
- .btn-wrap i.ph-arrow-right { width: 2rem; height: 2rem; border-radius: 50%; border: 1px solid var(--creme); flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: background-color 0.3s, transform 0.3s; }
- .btn-wrap:hover {  }
- .btn-wrap:hover span { text-decoration: underline; }
- .btn-wrap:hover i.ph-arrow-right { transform: translateX(0.25rem); color: #000; background: var(--creme); }

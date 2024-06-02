@@ -3,7 +3,7 @@
   "apiVersion": 3,
   "name": "create-block/vog-buttons-block",
   "version": "0.1.0",
-  "title": "Buttons Block",
+  "title": "Buttons",
   "category": "theaterkoorvog-blocks",
   "icon": "admin-home",
   "description": "Standaard blok voor alle buttons.",

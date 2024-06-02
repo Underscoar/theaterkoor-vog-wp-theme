@@ -81,6 +81,7 @@ add_theme_support('align-wide');
 
 include('block-plugins/home-header-block/home-header-block.php');
 include('block-plugins/vog-buttons-block/vog-buttons-block.php');
+include('block-plugins/vog-text-image-block/vog-text-image-block.php');
 // include('block-plugins/voetreflex-text-image-block/voetreflex-text-image-block.php');
 // include('block-plugins/voetreflex-services-list-block/voetreflex-services-list-block.php');
 // include('block-plugins/voetreflex-vog-buttons-block/voetreflex-vog-buttons-block.php');

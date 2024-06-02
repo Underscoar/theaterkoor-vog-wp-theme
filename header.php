@@ -39,9 +39,12 @@
                 <div class="nav-wrap">
                     <span class="brand">Theaterkoor VOG</span>
                     <button class="menu-toggle" aria-label="Menu openen">
-                      <span class="hamburger-line" aria-hidden="true"></span>
-                      <span class="hamburger-line" aria-hidden="true"></span>
-                      <span class="hamburger-line" aria-hidden="true"></span>
+                        Menu
+                        <div class="hamburger-wrap">
+                            <span class="hamburger-line" aria-hidden="true"></span>
+                            <span class="hamburger-line" aria-hidden="true"></span>
+                            <span class="hamburger-line" aria-hidden="true"></span>
+                        </div>
                     </button>
                 </div>
             </div>
@@ -50,12 +53,37 @@
         <div class="full-menu" tabindex="-1" role="dialog">
             <div class="overlay-wall"></div>
             <div class="modal-content">
-                <menu class="nav-items">
-                    <li><a href="/" aria-current=&quot;page&quot;>Home</a></li>
-                    <li><a href="/voetreflextherapie" >Voetreflextherapie</a></li>
-                    <li><a href="/voetreflexmassages" >Voetreflexmassages</a></li>
-                    <li><a href="/over-mij" >Over mij</a></li>
-                    <li><a href="/contact" >Contact</a></li>
-                </menu>
+                <div class="content-wrap">
+                    <div class="top-and-bottom"></div>
+                    <div class="menu-content">
+                        <menu class="nav-items">
+                            <?php
+                                wp_nav_menu(
+                                    array(
+                                        'menu' => 'primary',
+                                        'container' => '',
+                                        'theme_location' => 'primary',
+                                        'items_wrap' => '%3$s'
+                                    )
+                                );
+                            ?>
+                        </menu>
+                        <menu class="sub-menu-items"></menu>
+                    </div>
+                    <div class="top-and-bottom">
+                        <div class="bottom-content contact-info">
+                            <div class="item">
+                                <strong>Theaterkoor VOG</strong><br>
+                                Postbus 462<br>
+                                5900 AL Venlo
+                            </div>
+                            <div class="item">
+                                <strong>Neem contact op</strong><br>
+                                <a href="tel:+31622692502">+31 6 22692502</a><br>
+                                <a href="mailto:secretariaatvog@gmail.com">secretariaatvog@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>

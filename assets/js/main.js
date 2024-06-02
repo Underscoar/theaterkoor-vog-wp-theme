@@ -33,6 +33,7 @@ function openMenu() {
     document.querySelector('.menu-toggle').classList.add('toggled')
     body.style.paddingRight = getScrollbarWidth() + 'px'
     body.classList.add('modal-open');
+    toMainMenu(false)
     setTimeout(function() {
         document.querySelector('.full-menu').classList.add('active')
     }, 5);
@@ -45,6 +46,7 @@ function closeMenu() {
         body.classList.remove('modal-open')
         body.style.paddingRight = '0'
         document.querySelector('.full-menu').style.display='none'
+        toMainMenu(true)
     }, 600);
 }
 
@@ -61,8 +63,40 @@ document.addEventListener("keydown", (e) => {
     }
 });
 
+// Submenu handling
+const allItemsWithSubmenu = document.querySelectorAll('.full-menu .menu-item-has-children')
 
-let callback = (entries, observer) => {
+allItemsWithSubmenu.forEach(menuItem => {
+    const link = menuItem.querySelector('a')
+    const submenu = menuItem.querySelector('.sub-menu')
+
+    link.addEventListener('click', async (e) => {
+        e.preventDefault()
+        const backBtnHTML = '<li><button onClick="toMainMenu(true)" class="btn btn-back"><i class="ph ph-arrow-left"></i>Terug naar hoofdmenu</button></li>'
+        const submenuItemTitle = link.innerHTML
+        const submenuItemTitleHTML = `<li><h2>${submenuItemTitle}</h2></li>`
+
+        document.querySelector('.sub-menu-items').innerHTML = backBtnHTML + submenuItemTitleHTML + submenu.innerHTML
+        document.querySelector('.sub-menu-items').classList.add('sub-menu-open')
+        document.querySelector('.nav-items').classList.add('sub-menu-open')
+
+        await new Promise(resolve => setTimeout(resolve, 50))
+        document.querySelector('.full-menu .btn-back').focus()
+    })
+})
+
+async function toMainMenu(waitForAnimation) {
+    document.querySelector('.full-menu .sub-menu-items').classList.remove('sub-menu-open')
+    document.querySelector('.full-menu .nav-items').classList.remove('sub-menu-open')
+
+    if (waitForAnimation) {
+        await new Promise(resolve => setTimeout(resolve, 300))
+    }
+    document.querySelector('.full-menu .sub-menu-items').innerHTML = ''
+}
+
+
+let mainTitleCallback = (entries, observer) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
             showMainTitle()
@@ -71,7 +105,7 @@ let callback = (entries, observer) => {
 };
   
   
-let observer = new IntersectionObserver(callback, {
+let observer = new IntersectionObserver(mainTitleCallback, {
     rootMargin: "0px",
     threshold: 0.5,
 });

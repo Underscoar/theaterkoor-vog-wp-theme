@@ -3,20 +3,21 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
-
- @import "../../../assets/css/bootstrap-grid-custom.css";
- @import "../../../assets/css/style.css";
- @import "https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap";
-
- @import "https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css";
- @import "https://unpkg.com/@phosphor-icons/web@2.1.1/src/thin/style.css";
- @import "https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css";
- @import "https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css";
- @import "https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css";
- @import "https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css";
-
-
 img {
 	max-width: 100%;
 	object-fit: cover;
 }
+
+.btn-wrap { font-weight: 700; display: inline-flex; align-items: center; gap: 1rem; }
+.btn-wrap i.ph-arrow-right { width: 2rem; height: 2rem; border-radius: 50%; border: 1px solid var(--purple); flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: background-color 0.3s, transform 0.3s; }
+.btn-wrap:hover {  }
+.btn-wrap:hover span { text-decoration: underline; }
+.btn-wrap:hover i.ph-arrow-right { transform: translateX(0.25rem); color: #fff; background: var(--purple); }
+
+.btn-wrap.variant-primary { color: var(--purple); }
+.btn-wrap.variant-primary i.ph-arrow-right { border-color: var(--purple); }
+.btn-wrap.variant-primary:hover i.ph-arrow-right { background: var(--purple); }
+
+.btn-wrap.variant-secondary { color: var(--creme); }
+.btn-wrap.variant-secondary i.ph-arrow-right { border-color: var(--creme); }
+.btn-wrap.variant-secondary:hover i.ph-arrow-right { color: #000; background: var(--creme); }

@@ -12,58 +12,55 @@ img {
      object-fit: cover;
 }
 
-.btn-wrap {
-  font-weight: 700;
-  display: inline-flex;
+.text-image-container .editor-post-featured-image__preview,
+.text-image-container .editor-post-featured-image__toggle {
+  height: 100%;
+  max-height: none;
+  position: relative;
+}
+.text-image-container .row.image-text {
+  flex-direction: row-reverse;
+}
+.text-image-container .row.content-row {
   align-items: center;
-  gap: 1rem;
+}
+.text-image-container h2 {
+  font-family: "Newsreader";
+  font-weight: 300;
+  font-size: 3.5rem;
+  margin: 0;
+  margin-bottom: 0.25em;
 }
 
-.btn-wrap i.ph-arrow-right {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  border: 1px solid var(--purple);
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s, transform 0.3s;
+.editor-post-featured-image__preview .media-wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
-.btn-wrap:hover span {
-  text-decoration: underline;
-}
-
-.btn-wrap:hover i.ph-arrow-right {
-  transform: translateX(0.25rem);
+.editor-post-featured-image__preview .select-image-overlay {
+  position: absolute;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  left: 0;
+  top: 0;
   color: #fff;
-  background: var(--purple);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+  height: 100%;
 }
 
-.btn-wrap.variant-primary {
-  color: var(--purple);
+.editor-post-featured-image__preview .pseudo-btn {
+  border: 1px solid #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
 }
 
-.btn-wrap.variant-primary i.ph-arrow-right {
-  border-color: var(--purple);
-}
-
-.btn-wrap.variant-primary:hover i.ph-arrow-right {
-  background: var(--purple);
-}
-
-.btn-wrap.variant-secondary {
-  color: var(--creme);
-}
-
-.btn-wrap.variant-secondary i.ph-arrow-right {
-  border-color: var(--creme);
-}
-
-.btn-wrap.variant-secondary:hover i.ph-arrow-right {
-  color: #000;
-  background: var(--creme);
+.editor-post-featured-image__preview:hover .select-image-overlay {
+  opacity: 1;
 }
 
 /*# sourceMappingURL=index.css.map*/
