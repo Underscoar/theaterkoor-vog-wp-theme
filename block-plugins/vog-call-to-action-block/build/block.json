@@ -1,0 +1,39 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "create-block/vog-call-to-action-block",
+  "version": "0.1.0",
+  "title": "Standaard call to action block",
+  "category": "theaterkoorvog-blocks",
+  "icon": "admin-home",
+  "description": "Standaard blok voor het weergeven van een call to action.",
+  "example": {},
+  "supports": {
+    "html": false,
+    "align": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Sectietitel"
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Sectie subtitel"
+    },
+    "content": {
+      "type": "string",
+      "default": "Sectie inhoud"
+    },
+    "innerBlocks": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "textdomain": "vog-call-to-action-block",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}

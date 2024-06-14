@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "create-block/vog-productions-slider",
+  "version": "0.1.0",
+  "title": "Producties slider",
+  "category": "theaterkoorvog-blocks",
+  "icon": "admin-home",
+  "description": "Blok om producties te tonen in een slider.",
+  "example": {},
+  "supports": {
+    "html": false,
+    "align": true
+  },
+  "attributes": {
+    "innerBlocks": {
+      "type": "array",
+      "default": []
+    },
+    "title": {
+      "type": "string",
+      "default": "Slider titel"
+    }
+  },
+  "textdomain": "vog-productions-slider",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}

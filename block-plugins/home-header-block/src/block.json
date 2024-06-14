@@ -9,7 +9,8 @@
 	"description": "Standaard blok voor de header van de homepagina.",
 	"example": {},
 	"supports": {
-		"html": false
+		"html": false,
+		"align": true
 	},
 	"attributes": {
 		"title": {

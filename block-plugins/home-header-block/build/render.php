@@ -3,7 +3,7 @@
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
 ?>
-<header class="home-header purple-wall mb-6">
+<header class="home-header break-from-container purple-wall mb-6">
 	<div class="header-left">
 		<div class="header-content">
 			<?php
@@ -12,16 +12,18 @@
 			<h1><?php echo $titleString; ?></h1>
 			<div class="content-content">
 				<?php
-					$dom = new DOMDocument();
-					$dom->loadHTML($content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
-					$paragraphs = $dom->getElementsByTagName('p');
-					
-					
-					foreach ($paragraphs as $paragraph) {
-						$paragraph->setAttribute('class', 'opacity-0 pre-hidden');
+					$finalHTML = '';
+					if ($content) {
+						$dom = new DOMDocument();
+						$dom->loadHTML($content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+						$paragraphs = $dom->getElementsByTagName('p');
+						
+						foreach ($paragraphs as $paragraph) {
+							$paragraph->setAttribute('class', 'opacity-0 pre-hidden');
+						}
+						
+						$finalHTML = $dom->saveHTML();
 					}
-					
-					$finalHTML = $dom->saveHTML();
 				?>
 				<?php echo $finalHTML; ?>
 			</div>

@@ -1,0 +1,13 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+@import "../../../assets/css/bootstrap-grid-custom.css";
+@import "../../../assets/css/style.css";
+@import "https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap";
+
+// .call-to-action-container .container { max-width: 840px; }
+.call-to-action-container h2 { margin-top: 0; margin-bottom: 0.125em; font-family: 'Newsreader'; font-weight: 500; font-size: 3rem; }
+.call-to-action-container h3 { margin-top: 0; font-family: 'Newsreader'; font-weight: 300; font-size: 2rem; }

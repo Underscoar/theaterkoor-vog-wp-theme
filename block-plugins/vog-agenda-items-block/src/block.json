@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "create-block/vog-agenda-items-block",
+	"version": "0.1.0",
+	"title": "Agenda items",
+	"category": "theaterkoorvog-blocks",
+	"icon": "admin-home",
+	"description": "Blok om agenda items te tonen.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "Titel"
+		},
+		"amountOfItems": {
+			"type": "number",
+			"default": 3
+		}
+	},
+	"textdomain": "vog-agenda-items-block",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

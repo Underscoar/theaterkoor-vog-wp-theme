@@ -65,6 +65,9 @@ function Edit(props) {
   }, {
     name: 'Secondary (beige)',
     key: 'btn btn-secondary'
+  }, {
+    name: 'Tertiary (wit)',
+    key: 'btn btn-tertiary'
   }];
   const btnVariant = attributes.btnType.replace('btn btn-', 'variant-');
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {

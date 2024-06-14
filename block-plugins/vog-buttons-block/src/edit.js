@@ -42,6 +42,10 @@ export function Edit(props) {
 			name: 'Secondary (beige)',
 			key: 'btn btn-secondary',
 		},
+		{
+			name: 'Tertiary (wit)',
+			key: 'btn btn-tertiary',
+		},
 	];
 
 	const btnVariant = attributes.btnType.replace('btn btn-', 'variant-')

@@ -8,7 +8,7 @@
  * Author:            Neonweb Studio - Arne Reijntjes
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       vog-buttons-block
+ * Text Domain:       vog-text-image-block
  *
  * @package CreateBlock
  */

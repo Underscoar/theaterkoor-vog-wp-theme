@@ -21,3 +21,7 @@ img {
 .btn-wrap.variant-secondary { color: var(--creme); }
 .btn-wrap.variant-secondary i.ph-arrow-right { border-color: var(--creme); }
 .btn-wrap.variant-secondary:hover i.ph-arrow-right { color: #000; background: var(--creme); }
+
+.btn-wrap.variant-tertiary { color: #fff; }
+.btn-wrap.variant-tertiary i.ph-arrow-right { border-color: #fff; }
+.btn-wrap.variant-tertiary:hover i.ph-arrow-right { color: #000; background: #fff; }

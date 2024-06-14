@@ -66,4 +66,17 @@ img {
   background: var(--creme);
 }
 
+.btn-wrap.variant-tertiary {
+  color: #fff;
+}
+
+.btn-wrap.variant-tertiary i.ph-arrow-right {
+  border-color: #fff;
+}
+
+.btn-wrap.variant-tertiary:hover i.ph-arrow-right {
+  color: #000;
+  background: #fff;
+}
+
 /*# sourceMappingURL=index.css.map*/

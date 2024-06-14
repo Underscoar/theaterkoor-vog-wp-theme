@@ -2,18 +2,18 @@
 
 const body = document.querySelector('body');
 
-// window.addEventListener("scroll", checkScrollPos, { passive: true });
+window.addEventListener("scroll", checkScrollPos, { passive: true });
 
-// function checkScrollPos() {
-//     if (window.scrollY > 0) {
-//         document.querySelector('nav').classList.add('scroll-nav');
-//     }
-//     else {
-//         document.querySelector('nav').classList.remove('scroll-nav');
-//     }
-// }
+function checkScrollPos() {
+    if (window.scrollY > 0) {
+        document.querySelector('nav').classList.add('scroll-nav');
+    }
+    else {
+        document.querySelector('nav').classList.remove('scroll-nav');
+    }
+}
 
-// checkScrollPos();
+checkScrollPos();
 
 
 document.querySelector('.menu-toggle').addEventListener('click', toggleMenu)
