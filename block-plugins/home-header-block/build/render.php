@@ -3,7 +3,7 @@
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
 ?>
-<header class="home-header break-from-container purple-wall mb-6">
+<header class="home-header break-from-container purple-wall">
 	<div class="header-left">
 		<div class="header-content">
 			<?php
@@ -15,17 +15,25 @@
 					$finalHTML = '';
 					if ($content) {
 						$dom = new DOMDocument();
-						$dom->loadHTML($content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
-						$paragraphs = $dom->getElementsByTagName('p');
+						$dom->loadHTML($content, LIBXML_HTML_NODEFDTD);
+						$paragraphs = $dom->getElementsByTagName('*');
 						
 						foreach ($paragraphs as $paragraph) {
-							$paragraph->setAttribute('class', 'opacity-0 pre-hidden');
+							if ($paragraph->tagName !== 'a' && $paragraph->tagName !== 'i') {
+								$paragraph->setAttribute('class', 'opacity-0 pre-hidden');
+							}
 						}
 						
 						$finalHTML = $dom->saveHTML();
+						// Includes <html> and <body> tags, but HTML_PARSE_NOIMPLIED does not work correctly. For some reason, it nests all the elements.
+
+						$finalHTMLStripped = str_replace('<html>', '', $finalHTML);
+						$finalHTMLStripped = str_replace('</html>', '', $finalHTMLStripped);
+						$finalHTMLStripped = str_replace('<body>', '', $finalHTMLStripped);
+						$finalHTMLStripped = str_replace('</body>', '', $finalHTMLStripped);
 					}
 				?>
-				<?php echo $finalHTML; ?>
+				<?php echo $finalHTMLStripped; ?>
 			</div>
 		</div>
 	</div>

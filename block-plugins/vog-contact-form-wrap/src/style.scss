@@ -1,0 +1,55 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.contact-form-wrap { background: #011936; color: #fff; padding-top: 6rem; padding-bottom: 6rem; position: relative; }
+.contact-form-wrap::before { content: url('assets/notes.svg'); position: absolute; width: 110%; left: -5%; top: 50%; transform: translateY(-50%); }
+.contact-form-wrap .text-wrap { text-align: center; max-width: 600px; margin: 0 auto 3rem; position: relative; z-index: 1; }
+.contact-form-wrap [role="doc-subtitle"] { color: var(--peach); font-weight: 500; margin-bottom: 1.25rem; display: block; }
+.contact-form-wrap .text-wrap p { color: #D8D8D8; line-height: 1.2; }
+.contact-form-wrap form { max-width: 500px; margin: auto; background: #011936; position: relative; box-shadow: 0 4px 250px 150px #011936; }
+.contact-form-wrap form label { color: var(--peach); font-weight: 700; font-size: 0.875rem; }
+.contact-form-wrap form span { display: block; position: relative; }
+.contact-form-wrap form span::after { content: ''; position: absolute; width: 100%; top: 100%; left: 0; border-bottom: 3px solid var(--peach); transform-origin: left; transform: scaleX(0); transition: transform 0.3s; }
+.contact-form-wrap form span input,
+.contact-form-wrap form span textarea { width: 100%; background: none; outline: none; border: none; border-bottom: 1px solid #fff; color: #fff; padding: 0 0 0.5rem; }
+.contact-form-wrap form span textarea { resize: vertical; height: 100px; }
+.contact-form-wrap form span input::placeholder,
+.contact-form-wrap form span textarea::placeholder { color: #465362; }
+.contact-form-wrap form span:focus-within::after { transform: scaleX(1); }
+.contact-form-wrap form input[type="submit"] { background: none; color: #fff; padding: 0; border: 1px solid #fff; border-radius: 100px; outline: none; font-size: 0.875rem; font-weight: 700; padding: 0.5rem 1.25rem; box-shadow: 0 0 0 4px transparent; transition: color 0.3s, background-color 0.3s, box-shadow 0.3s; }
+.contact-form-wrap form input[type="submit"]:hover { background: #fff; color: #011936; cursor: pointer; }
+.contact-form-wrap form input[type="submit"]:active { transform: translateY(2px); box-shadow: 0 0 0 3px rgb(255 255 255 / 50%); }
+.contact-form-wrap form input[type="submit"]:focus-visible { box-shadow: 0 0 0 3px rgb(255 255 255 / 50%); background: rgb(255 255 255 / 10%); }
+.contact-form-wrap form input[type="submit"]:focus-visible:active { background: rgb(255 255 255 / 20%); }
+.contact-form-wrap .wpcf7 form.invalid .wpcf7-response-output,
+.contact-form-wrap .wpcf7 form.unaccepted .wpcf7-response-output,
+.contact-form-wrap .wpcf7 form.payment-required .wpcf7-response-output { border: none; border-bottom: 2px solid var(--peach); background: rgb(255 255 255 / 10%); padding: 0.5rem 1rem; }
+.contact-form-wrap .wpcf7 form.sent .wpcf7-response-output { border: none; border-bottom: 2px solid #46b450; background: rgb(255 255 255 / 10%); padding: 0.5rem 1rem; }
+
+@media only screen and (max-width: 1399px) {
+    .contact-form-wrap { padding-top: 5rem; padding-bottom: 5rem; }
+}
+
+@media only screen and (max-width: 1199px) {
+    .contact-form-wrap { padding-top: 4.5rem; padding-bottom: 4.5rem; }
+}
+
+@media only screen and (max-width: 991px) {
+    .contact-form-wrap { padding-top: 4rem; padding-bottom: 4rem; }
+}
+
+@media only screen and (max-width: 767px) {
+    .contact-form-wrap { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+}
+
+@media only screen and (max-width: 575px) {
+    .contact-form-wrap { padding-top: 3rem; padding-bottom: 3rem; }
+}
+
+@media only screen and (max-width: 479px) {
+    .contact-form-wrap { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+}

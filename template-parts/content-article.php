@@ -1,36 +1,33 @@
-
-<div class="breadcrumbs-wrap container-fluid mbot-50">
-    <span>Blog / <?php the_title(); ?></span>
-</div>
+<header class="vervolg-header break-from-container purple-wall">
+	<div class="header-left">
+		<div class="header-content">
+            <div class="content-titles">
+				<div class="container">
+					<span role="doc-subtitle" class="pre-hidden">Blog</span>
+					<h1><span class="pre-hidden"><?php the_title(); ?></span></h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="header-right">
+		<div class="img-wrap pre-pre-hidden">
+			<div class="simpleParallax">
+                <?php the_post_thumbnail( 'full' ); ?>
+            </div>
+		</div>
+	</div>
+</header>
 
 <div class="container">
-    <div class="post-wrap mbot-50">
+    <div class="post-wrap">
         <div class="back-btn-wrap">
-            <a class="btn btn-primary" href="/blog"><i class="ph ph-arrow-left"></i>Terug naar blog</a>
+            <a class="btn btn-primary" href="/blog"><i class="ph ph-arrow-left"></i>Terug naar blog/nieuws</a>
         </div>
         <h1><?php the_title(); ?></h1>
-    
-        <div class="featured-image-wrap mtop-50 mbot-50">
-            <?php the_post_thumbnail( 'large' ); ?>
-        </div>
-    
-        <div class="posted-by-details">
-            <?php the_author(); ?>,
-            <?php the_date(); ?>
-        </div>
+        <span class="blog-date"><?php the_date(); ?></span>
+
         <?php
             the_content();
         ?>
     </div>
-
-    <div class="contact-block mbot-100">
-		<div class="content-wrap">
-			<h2>Afspraak maken?</h2>
-			<p>Neem contact met me op om een<br>voetmassage te plannen.</p>
-		</div>
-		<div role="doc-subtitle">Voetreflexmassage</div>
-		<div class="btn-wrap">
-			<a class="btn btn-secondary" href="/contact">Contact</a>
-		</div>
-	</div>
 </div>

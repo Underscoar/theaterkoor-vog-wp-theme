@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "create-block/vog-image-gallery-block",
+	"version": "0.1.0",
+	"title": "Afbeeldingen galerij",
+	"category": "theaterkoorvog-blocks",
+	"icon": "admin-home",
+	"description": "Standaard blok voor het weergeven van een afbeeldingengalerij.",
+	"example": {},
+	"supports": {
+		"html": true
+	},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "Sectietitel"
+		},
+		"images": {
+			"type": "string",
+			"default": "[]"
+		}
+	},
+	"textdomain": "vog-image-gallery-block",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

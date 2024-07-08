@@ -19,6 +19,14 @@
     "amountOfItems": {
       "type": "number",
       "default": 3
+    },
+    "showTitle": {
+      "type": "boolean",
+      "default": true
+    },
+    "showAgendaLink": {
+      "type": "boolean",
+      "default": true
     }
   },
   "textdomain": "vog-agenda-items-block",

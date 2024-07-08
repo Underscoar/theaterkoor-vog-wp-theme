@@ -63,6 +63,16 @@ function Edit(props) {
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
   const innerBlocksProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useInnerBlocksProps)();
   const ALLOWED_BLOCKS = ['core/list', 'core/paragraph', 'core/heading', 'core/list', 'core/quote', 'core/details', 'core/table', 'create-block/vog-buttons-block'];
+  const options = [{
+    name: 'Klein',
+    key: 'small'
+  }, {
+    name: 'Groot',
+    key: 'large'
+  }, {
+    name: 'Uitgelicht',
+    key: 'featured'
+  }];
   const removeMedia = () => {
     props.setAttributes({
       mediaId: 0,
@@ -82,6 +92,20 @@ function Edit(props) {
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, {
     key: "setting"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Panel, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: "Blok variant",
+    initialOpen: true
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CustomSelectControl, {
+    className: "components-base-control blocks-base-control__input",
+    __nextUnconstrainedWidth: true,
+    label: "Klein/groot/uitgelicht",
+    options: options,
+    onChange: ({
+      selectedItem
+    }) => setAttributes({
+      variant: selectedItem.key
+    }),
+    value: options.find(option => option.key === attributes.variant)
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
     title: "Blok opties",
     initialOpen: true
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RadioControl, {
@@ -97,6 +121,22 @@ function Edit(props) {
     }],
     onChange: value => setAttributes({
       order: value
+    })
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: "Video opties",
+    initialOpen: true
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
+    label: "Video",
+    checked: attributes.isVideo,
+    onChange: isVideo => setAttributes({
+      isVideo
+    })
+  }), attributes.isVideo && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    className: "blocks-base-control__input",
+    label: "YouTube link",
+    value: attributes.videoLink,
+    onChange: val => setAttributes({
+      videoLink: val
     })
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Selecteer afbeelding', 'awp'),
@@ -138,12 +178,12 @@ function Edit(props) {
     onClick: removeMedia,
     isLink: true,
     isDestructive: true
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Verwijder afbeelding', 'awp'))))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    class: "text-image-container"
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Verwijder afbeelding', 'awp'))))))), attributes.variant === 'small' && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "text-image-container"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: attributes.order == 'TextImage' ? 'row content-row' : 'row content-row image-text'
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    class: "col-6 left-col"
+    className: "col-6 left-col"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
     tagName: "h2",
     className: "title-edit",
@@ -158,13 +198,13 @@ function Edit(props) {
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
     allowedBlocks: ALLOWED_BLOCKS
   }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    class: "col-6"
+    className: "col-6"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    class: "p-50"
+    className: "p-50"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    class: "img-wrap"
+    className: "img-wrap"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    class: "img-holder"
+    className: "img-holder"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
     onSelect: onSelectMedia,
     value: attributes.mediaId,
@@ -185,6 +225,116 @@ function Edit(props) {
     }, "Selecteer afbeelding"))), attributes.mediaUrl == '' && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "no-image"
     }, "Geen afbeelding geselecteerd"))
+  })), attributes.isVideo && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "video-btn"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+    className: "ph-fill ph-play"
+  })))))))), attributes.variant === 'large' && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "text-image-container text-image-container-large"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: attributes.order == 'TextImage' ? 'row content-row' : 'row content-row image-text'
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "col-6 left-col"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "content-wrap"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    tagName: "h2",
+    className: "title-edit",
+    value: attributes.title,
+    allowedFormats: [],
+    onChange: title => setAttributes({
+      title
+    }),
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Titel...')
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    ...innerBlocksProps
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
+    allowedBlocks: ALLOWED_BLOCKS
+  })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "col-6"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "p-50"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "img-wrap"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "img-holder"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
+    onSelect: onSelectMedia,
+    value: attributes.mediaId,
+    allowedTypes: ['image'],
+    render: ({
+      open
+    }) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+      onClick: open,
+      className: attributes.mediaId == 0 ? 'editor-post-featured-image__toggle' : 'editor-post-featured-image__preview'
+    }, attributes.mediaUrl != '' && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "media-wrap"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      src: attributes.mediaUrl
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "select-image-overlay"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: "pseudo-btn"
+    }, "Selecteer afbeelding"))), attributes.mediaUrl == '' && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "no-image"
+    }, "Geen afbeelding geselecteerd"))
+  })), attributes.isVideo && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "video-btn"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+    className: "ph-fill ph-play"
+  })))))))), attributes.variant === 'featured' && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "text-image-container text-image-container-featured"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: attributes.order == 'TextImage' ? 'row content-row' : 'row content-row image-text'
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "col-6 left-col"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "content-wrap"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    tagName: "h2",
+    className: "title-edit",
+    value: attributes.title,
+    allowedFormats: [],
+    onChange: title => setAttributes({
+      title
+    }),
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Titel...')
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    ...innerBlocksProps
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
+    allowedBlocks: ALLOWED_BLOCKS
+  })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "col-6"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "p-50"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "img-wrap"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "img-holder"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
+    onSelect: onSelectMedia,
+    value: attributes.mediaId,
+    allowedTypes: ['image'],
+    render: ({
+      open
+    }) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+      onClick: open,
+      className: attributes.mediaId == 0 ? 'editor-post-featured-image__toggle' : 'editor-post-featured-image__preview'
+    }, attributes.mediaUrl != '' && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "media-wrap"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      src: attributes.mediaUrl
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "select-image-overlay"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: "pseudo-btn"
+    }, "Selecteer afbeelding"))), attributes.mediaUrl == '' && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "no-image"
+    }, "Geen afbeelding geselecteerd"))
+  })), attributes.isVideo && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "video-btn"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+    className: "ph-fill ph-play"
   })))))))));
 }
 function Save(props) {
@@ -336,7 +486,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/vog-text-image-block","version":"0.1.0","title":"Standaard tekst-afbeelding block","category":"theaterkoorvog-blocks","icon":"admin-home","description":"Standaard blok voor het weergeven van tekst en een afbeelding.","example":{},"supports":{"html":false},"attributes":{"title":{"type":"string","default":"Sectietitel"},"order":{"type":"string","default":"TextImage"},"mediaId":{"type":"number","default":0},"mediaUrl":{"type":"string","default":""},"mediaWidth":{"type":"number","default":0},"mediaHeight":{"type":"number","default":0},"innerBlocks":{"type":"array","default":[]}},"textdomain":"vog-text-image-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/vog-text-image-block","version":"0.1.0","title":"Standaard tekst-afbeelding block","category":"theaterkoorvog-blocks","icon":"admin-home","description":"Standaard blok voor het weergeven van tekst en een afbeelding.","example":{},"supports":{"html":false,"align":true},"attributes":{"title":{"type":"string","default":"Sectietitel"},"order":{"type":"string","default":"TextImage"},"mediaId":{"type":"number","default":0},"mediaUrl":{"type":"string","default":""},"mediaWidth":{"type":"number","default":0},"mediaHeight":{"type":"number","default":0},"innerBlocks":{"type":"array","default":[]},"variant":{"type":"string","default":"small"},"isVideo":{"type":"boolean","default":false},"videoLink":{"type":"string","default":""}},"textdomain":"vog-text-image-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 

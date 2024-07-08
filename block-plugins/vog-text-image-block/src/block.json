@@ -9,7 +9,8 @@
 	"description": "Standaard blok voor het weergeven van tekst en een afbeelding.",
 	"example": {},
 	"supports": {
-		"html": false
+		"html": false,
+		"align": true
 	},
 	"attributes": {
 		"title": {
@@ -39,6 +40,18 @@
 		"innerBlocks": {
 			"type": "array",
 			"default": []
+		},
+		"variant": {
+			"type": "string",
+			"default": "small"
+		},
+		"isVideo": {
+			"type": "boolean",
+			"default": false
+		},
+		"videoLink": {
+			"type": "string",
+			"default": ""
 		}
 	},
 	"textdomain": "vog-text-image-block",

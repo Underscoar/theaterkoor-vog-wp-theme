@@ -90,7 +90,11 @@ function Edit(props) {
   }, {
     name: '10',
     key: 10
+  }, {
+    name: 'Alles',
+    key: -1
   }];
+  const amountOfItemsString = attributes.amountOfItems > -1 ? `(maximaal) ${attributes.amountOfItems}` : 'alle';
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -111,9 +115,24 @@ function Edit(props) {
       amountOfItems: selectedItem.key
     }),
     value: options.find(option => option.key === attributes.amountOfItems)
+  }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Panel, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: "Blok opties",
+    initialOpen: true
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
+    label: "Laat titel zien",
+    checked: attributes.showTitle,
+    onChange: showTitle => setAttributes({
+      showTitle
+    })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
+    label: "Laat link naar agenda zien",
+    checked: attributes.showAgendaLink,
+    onChange: showAgendaLink => setAttributes({
+      showAgendaLink
+    })
   })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "container"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+  }, attributes.showTitle && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
     tagName: "h2",
     className: "title-edit",
     value: attributes.title,
@@ -124,7 +143,7 @@ function Edit(props) {
     placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Slider titel...')
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "items"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("em", null, "Hier worden (maximaal) ", attributes.amountOfItems, " agenda items in de toekomst getoond. Klik op dit blok en selecteer hoeveel items er getoond moeten worden.")))));
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("em", null, "Hier worden ", amountOfItemsString, " agenda items in de toekomst getoond. Klik op dit blok en selecteer hoeveel items er getoond moeten worden.")))));
 }
 
 /***/ }),
@@ -271,7 +290,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/vog-agenda-items-block","version":"0.1.0","title":"Agenda items","category":"theaterkoorvog-blocks","icon":"admin-home","description":"Blok om agenda items te tonen.","example":{},"supports":{"html":false},"attributes":{"title":{"type":"string","default":"Titel"},"amountOfItems":{"type":"number","default":3}},"textdomain":"vog-agenda-items-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/vog-agenda-items-block","version":"0.1.0","title":"Agenda items","category":"theaterkoorvog-blocks","icon":"admin-home","description":"Blok om agenda items te tonen.","example":{},"supports":{"html":false},"attributes":{"title":{"type":"string","default":"Titel"},"amountOfItems":{"type":"number","default":3},"showTitle":{"type":"boolean","default":true},"showAgendaLink":{"type":"boolean","default":true}},"textdomain":"vog-agenda-items-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 

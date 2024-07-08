@@ -98,7 +98,7 @@ async function toMainMenu(waitForAnimation) {
 
 let mainTitleCallback = (entries, observer) => {
     entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting || entry.boundingClientRect.bottom < 400) {
             showMainTitle()
         }
     });
@@ -110,12 +110,15 @@ let observer = new IntersectionObserver(mainTitleCallback, {
     threshold: 0.5,
 });
 
-let target = document.querySelector(".home-header");
+let target = document.querySelector(".home-header, .vervolg-header");
 observer.observe(target);
 
 
 async function showMainTitle() {
-    const allItems = document.querySelectorAll('.home-header h1 span, .home-header .content-content > *')
+    const prePreHidden = document.querySelectorAll('.pre-pre-hidden')
+    const preHidden = document.querySelectorAll('.pre-hidden')
+
+    const allItems = [...prePreHidden, ...preHidden]
 
     for (let i=0; i<allItems.length; i++) {
         allItems[i].classList.remove('opacity-0')
@@ -125,6 +128,41 @@ async function showMainTitle() {
 
 const headerImg = document.querySelectorAll('.header-right img');
 new simpleParallax(headerImg, {
-	orientation: 'left',
-    delay: 1,
+	orientation: 'up',
+    delay: 0.3,
+    scale: 1.6
 });
+
+const textImgImgs = document.querySelectorAll('.text-img-large img');
+new simpleParallax(textImgImgs, {
+	orientation: 'up',
+    delay: 1,
+    scale: 1.6,
+    overflow: true
+});
+
+const textImgFeaturedImgs = document.querySelectorAll('.text-img-featured img');
+new simpleParallax(textImgFeaturedImgs, {
+	orientation: 'up',
+    delay: 1,
+    scale: 1.6,
+    overflow: true,
+});
+
+const parallaxObserver = new MutationObserver((mutations) => {
+    mutations.forEach(mutation => {
+        const videoLink = mutation.target.parentElement.querySelector('a')
+
+        if (videoLink) {
+            videoLink.style.transform = mutation.target.style.transform
+        }
+    })
+});
+
+document.querySelectorAll('.text-img-large img, .text-img-featured img').forEach(node => {
+    parallaxObserver.observe(node, {
+        attributes: true,
+    });
+})
+
+  

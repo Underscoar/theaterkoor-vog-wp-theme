@@ -1,0 +1,31 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "create-block/vog-bestuur-block",
+	"version": "0.1.0",
+	"title": "Bestuur block",
+	"category": "theaterkoorvog-blocks",
+	"icon": "admin-home",
+	"description": "Blok om een lijst van het bestuur te tonen.",
+	"example": {},
+	"supports": {
+		"html": false,
+		"align": true
+	},
+	"attributes": {
+		"innerBlocks": {
+			"type": "array",
+			"default": []
+		},
+		"title": {
+			"type": "string",
+			"default": "Sectietitel"
+		}
+	},
+	"textdomain": "vog-bestuur-block",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

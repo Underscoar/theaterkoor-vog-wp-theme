@@ -1,0 +1,68 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.vervolg-header { display: flex; }
+.vervolg-header .header-left { width: 50%; flex-shrink: 0; padding-top: 8rem; padding-bottom: 5rem; }
+.vervolg-header .header-right { width: 50%; flex-shrink: 0; }
+.vervolg-header .pre-hidden,
+.vervolg-header .pre-pre-hidden { transition: opacity 2s; }
+.vervolg-header .content-titles { width: 200%; position: relative; z-index: 2; }
+.vervolg-header .content-titles .container { text-align: center; }
+.vervolg-header [role="doc-subtitle"] { display: inline-block; margin-bottom: 2rem; color: var(--peach); font-size: 1.5rem; font-family: 'Cormorant'; }
+.vervolg-header h1 { font-size: 8rem; font-weight: 400; text-transform: uppercase; margin-bottom: 0.67em; }
+.vervolg-header h3 { font-size: 1.5rem; font-family: 'Cormorant'; }
+.vervolg-header p { color: var(--grey); }
+.vervolg-header .img-wrap { height: 100%; position: relative; }
+.vervolg-header .img-wrap .simpleParallax,
+.vervolg-header .img-wrap img { height: 100%; width: 100%; position: absolute;}
+.vervolg-header .img-wrap::after { content: ''; position: absolute; top: 0; width: 100%; height: 100%; background: rgb(0 0 0 / 50%); }
+
+.vervolg-header .header-left .pseudo-container { width: calc(1320px / 2); margin-left: auto; padding: 0 0.75rem; }
+.vervolg-header .header-left .content-content > *:last-child { margin-bottom: 0; }
+
+.vervolg-header h1,
+.vervolg-header h2,
+.vervolg-header h3,
+.vervolg-header h4,
+.vervolg-header h5 { color: var(--peach); }
+
+
+@media only screen and (max-width: 1399px) {
+    .vervolg-header h1 { font-size: 7rem; }
+
+    .vervolg-header .header-left .pseudo-container { width: calc(1140px / 2); }
+}
+
+@media only screen and (max-width: 1199px) {
+    .vervolg-header h1 { font-size: 5rem; }
+    .vervolg-header [role="doc-subtitle"] { margin-bottom: 1.5rem; }
+
+    .vervolg-header .header-left .pseudo-container { width: calc(960px / 2); }
+}
+
+@media only screen and (max-width: 991px) {
+    .vervolg-header { display: block; }
+    .vervolg-header h1 { font-size: 4rem; }
+    .vervolg-header .img-wrap .simpleParallax,
+    .vervolg-header .img-wrap img { position: static; }
+    .vervolg-header [role="doc-subtitle"] { margin-bottom: 1rem; font-size: 1.25rem; }
+    .vervolg-header .header-left { width: auto; padding-top: 5rem; padding-bottom: 3rem; }
+    .vervolg-header .header-right { width: auto; }
+    .vervolg-header .content-titles { width: auto; }
+    .vervolg-header .header-left .pseudo-container { width: 100%; max-width: 720px; margin-right: auto;}
+}
+
+@media only screen and (max-width: 767px) {
+    .vervolg-header h1 { font-size: 3rem; }
+    .vervolg-header [role="doc-subtitle"] { margin-bottom: 0.5rem; font-size: 1rem; }
+    .vervolg-header .header-left { padding-top: 4rem; padding-bottom: 2.5rem; }
+}
+
+@media only screen and (max-width: 575px) {
+    .vervolg-header h1 { font-size: 2.5rem; }
+    .vervolg-header .header-left { padding-bottom: 2rem; }
+}

@@ -1,0 +1,83 @@
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/style.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.gallery-container {
+  padding: 5rem 0;
+}
+
+.gallery-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -0.5rem;
+}
+
+.gallery-wrap .gallery-item {
+  padding: 0.5rem;
+  width: 25%;
+  box-sizing: border-box;
+}
+
+.gallery-wrap .gallery-item .img-wrap {
+  display: block;
+  overflow: hidden;
+}
+
+.gallery-wrap .gallery-item img {
+  width: 100%;
+  aspect-ratio: 1;
+  display: block;
+  transition: transform 0.3s;
+}
+
+.gallery-wrap .gallery-item .img-wrap:hover img {
+  transform: scale(1.05);
+}
+
+@media only screen and (max-width: 1399px) {
+  .gallery-container {
+    padding: 4.5rem 0;
+  }
+}
+@media only screen and (max-width: 1199px) {
+  .gallery-container {
+    padding: 4rem 0;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .gallery-container {
+    padding: 3.5rem 0;
+  }
+  .gallery-wrap .gallery-item {
+    width: 33.333333%;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .gallery-container {
+    padding: 3rem 0;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .gallery-container {
+    padding: 2.5rem 0;
+  }
+  .gallery-wrap .gallery-item {
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 479px) {
+  .gallery-container {
+    padding: 2rem 0;
+  }
+  .gallery-wrap {
+    margin: 0 -0.375rem;
+  }
+  .gallery-wrap .gallery-item {
+    padding: 0.375rem;
+  }
+}

@@ -26,7 +26,7 @@ function neonweb_register_styles() {
 	wp_enqueue_style('theaterkoorvog-reset', get_template_directory_uri() . '/assets/css/reset.css', array(), $version, 'all');
 	wp_enqueue_style('theaterkoorvog-bootstrap-grid-custom', get_template_directory_uri() . '/assets/css/bootstrap-grid-custom.css', array('theaterkoorvog-reset'), $version, 'all');
 	wp_enqueue_style('theaterkoorvog-custom', get_template_directory_uri() . '/assets/css/custom.css', array('theaterkoorvog-bootstrap-grid-custom'), $version, 'all');
-	wp_enqueue_style('theaterkoorvog-style', get_template_directory_uri() . '/assets/css/style.css', array('theaterkoorvog-custom'), $version, 'all');
+	wp_enqueue_style('theaterkoorvog-style', get_template_directory_uri() . '/assets/css/style.css', array('theaterkoorvog-custom'), filemtime(get_stylesheet_directory() . '/style.css'), 'all');
 	wp_enqueue_style('theaterkoorvog-style-render-only', get_template_directory_uri() . '/assets/css/style-render-only.css', array('theaterkoorvog-custom'), $version, 'all');
 	wp_enqueue_style('theaterkoorvog-wp-style', get_template_directory_uri() . '/style.css', array('theaterkoorvog-style'), $version, 'all');
 	wp_enqueue_style('swiper-style', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', array(), $version, 'all');
@@ -43,6 +43,7 @@ function neonweb_register_scripts() {
 	$version = wp_get_theme()->get('Version');
 	wp_enqueue_script('simpleParallax', 'https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js', null, null, true);
 	wp_enqueue_script('swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', null, null, true);
+	wp_enqueue_script('fslightbox', 'https://cdnjs.cloudflare.com/ajax/libs/fslightbox/3.0.9/index.min.js', null, null, true);
 	wp_enqueue_script('theaterkoorvog-main', get_template_directory_uri() . '/assets/js/main.js', array(), $version, 'all');
 }
 
@@ -82,13 +83,18 @@ add_theme_support('align-wide');
 include('inc/social-menu-walker.php');
 
 include('block-plugins/home-header-block/home-header-block.php');
+include('block-plugins/vervolgpagina-header-block/vervolgpagina-header-block.php');
 include('block-plugins/vog-buttons-block/vog-buttons-block.php');
 include('block-plugins/vog-text-image-block/vog-text-image-block.php');
+include('block-plugins/vog-image-gallery-block/vog-image-gallery-block.php');
 include('block-plugins/vog-productions-slider/vog-productions-slider.php');
 include('block-plugins/vog-productions-slider-item/vog-productions-slider-item.php');
+include('block-plugins/vog-bestuur-block/vog-bestuur-block.php');
+include('block-plugins/vog-bestuur-item/vog-bestuur-item.php');
 include('block-plugins/vog-agenda-items-block/vog-agenda-items-block.php');
 include('block-plugins/vog-blog-items-block/vog-blog-items-block.php');
 include('block-plugins/vog-call-to-action-block/vog-call-to-action-block.php');
+include('block-plugins/vog-contact-form-wrap/vog-contact-form-wrap.php');
 include('block-plugins/vog-footer-contact-block/vog-footer-contact-block.php');
 
 /**

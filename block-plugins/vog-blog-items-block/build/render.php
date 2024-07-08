@@ -5,13 +5,17 @@
 ?>
 
 <section class="agenda-items" <?php echo get_block_wrapper_attributes(); ?>>
-    <h2><?php echo $attributes['title']; ?></h2>
+    <?php if ($attributes['showTitle']) { ?>
+        <h2><?php echo $attributes['title']; ?></h2>
+    <?php } ?>
     <?php
+        $perPage = $attributes['showAll'] ? 100 : 3;
+
         $args = array (
                 'post_type' => 'post',
                 'orderby' => 'date',
                 'order' => 'DESC',
-                'posts_per_page' => 3,
+                'posts_per_page' => $perPage,
         );
 
         $the_query = new WP_Query( $args );
@@ -21,7 +25,7 @@
         <div class="row blog-items-list">
             <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
                 <?php $post = get_post(); ?>
-                <div class="col-4 blog-item">
+                <div class="col-lg-4 col-md-6 blog-item">
                     <div class="content-wrap">
                         <div class="content-top">
                             <a href="<?php the_permalink(); ?>" class="img-wrap">					
@@ -52,12 +56,14 @@
     <?php wp_reset_postdata(); else : ?>
         <!-- GEEN ITEMS OFZO --> 
     <?php endif; ?>
-
-    <div class="go-to-posts-wrap">
-        <a href="/nieuws-blog" class="btn btn-primary btn-bordered">
-            <i class="ph ph-calendar-dots"></i>
-            Naar nieuws/blog gaan
-        </a>
-    </div>
+    
+    <?php if (!$attributes['showAll']) { ?>
+        <div class="go-to-posts-wrap">
+            <a href="/nieuws-blog" class="btn btn-primary btn-bordered">
+                <i class="ph ph-calendar-dots"></i>
+                Naar nieuws/blog gaan
+            </a>
+        </div>
+    <?php } ?>
     
 </section>

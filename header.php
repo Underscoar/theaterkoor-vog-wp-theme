@@ -19,7 +19,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Cormorant:wght@700&display=swap" rel="stylesheet">
 
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
@@ -37,7 +37,7 @@
         <nav class="navbar">
             <div class="container">
                 <div class="nav-wrap">
-                    <span class="brand">Theaterkoor VOG</span>
+                    <a href="/" class="brand">Theaterkoor VOG</a>
                     <button class="menu-toggle" aria-label="Menu openen">
                         Menu
                         <div class="hamburger-wrap">

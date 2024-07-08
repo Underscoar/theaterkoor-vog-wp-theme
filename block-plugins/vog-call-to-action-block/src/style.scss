@@ -5,8 +5,33 @@
  * Replace them with your own styles or remove the file completely.
  */
 
- .call-to-action-container { color: #fff; padding: 5rem 0; margin-bottom: 5rem; }
- .call-to-action-container .row { align-items: center; }
- .call-to-action-container .right-col { display: flex; justify-content: center; }
- .call-to-action-container .left-col > *:last-child { margin-bottom: 0; }
- .call-to-action-container h2 { font-weight: 500; margin-bottom: 0.125em; }
+.call-to-action-container { color: #fff; padding: 5rem 0; margin-bottom: 5rem; }
+.call-to-action-container .row { align-items: center; }
+.call-to-action-container .right-col { display: flex; justify-content: center; }
+.call-to-action-container .left-col > *:last-child,
+.call-to-action-container .right-col > *:last-child { margin-bottom: 0; }
+.call-to-action-container h2 { font-weight: 500; margin-bottom: 0.125em; }
+
+@media only screen and (max-width: 1199px) {
+    .call-to-action-container { padding: 4rem 0; margin-bottom: 4rem; }
+}
+
+@media only screen and (max-width: 991px) {
+    .call-to-action-container { padding: 3rem 0; margin-bottom: 3.5rem; }
+}
+
+@media only screen and (max-width: 767px) {
+    .call-to-action-container { margin-bottom: 3rem; }
+    .call-to-action-container .left-col { margin-bottom: 2rem; }
+    .call-to-action-container .right-col { display: block; }
+}
+
+@media only screen and (max-width: 575px) {
+    .call-to-action-container { padding: 2rem 0; margin-bottom: 2.5rem; }
+    .call-to-action-container .left-col { margin-bottom: 1.5rem; }
+}
+
+@media only screen and (max-width: 479px) {
+    .call-to-action-container { margin-bottom: 2rem; }
+    .call-to-action-container .left-col { margin-bottom: 1rem; }
+}

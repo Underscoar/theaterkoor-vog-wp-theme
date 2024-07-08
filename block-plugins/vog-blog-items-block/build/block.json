@@ -15,6 +15,14 @@
     "title": {
       "type": "string",
       "default": "Titel"
+    },
+    "showAll": {
+      "type": "boolean",
+      "default": false
+    },
+    "showTitle": {
+      "type": "boolean",
+      "default": true
     }
   },
   "textdomain": "vog-blog-items-block",

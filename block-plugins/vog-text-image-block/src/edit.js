@@ -12,7 +12,7 @@ import { __ } from '@wordpress/i18n';
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
 import { useBlockProps, useInnerBlocksProps, InspectorControls, InnerBlocks, MediaUpload, MediaUploadCheck, RichText } from '@wordpress/block-editor';
-import { Panel, PanelBody, CheckboxControl, RadioControl, ResponsiveWrapper, Button, Spinner } from '@wordpress/components';
+import { Panel, PanelBody, CheckboxControl, RadioControl, ResponsiveWrapper, Button, Spinner, CustomSelectControl, TextControl } from '@wordpress/components';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -45,6 +45,21 @@ export function Edit(props) {
 		'create-block/vog-buttons-block'
 	];
 
+	const options = [
+		{
+			name: 'Klein',
+			key: 'small',
+		},
+		{
+			name: 'Groot',
+			key: 'large',
+		},
+		{
+			name: 'Uitgelicht',
+			key: 'featured',
+		}
+	];
+
 	const removeMedia = () => {
 		props.setAttributes({
 			mediaId: 0,
@@ -65,17 +80,41 @@ export function Edit(props) {
 		<div {...blockProps}>
 			<InspectorControls key="setting">
 				<Panel>
+					<PanelBody title='Blok variant' initialOpen={true}>
+						<CustomSelectControl className="components-base-control blocks-base-control__input"
+							__nextUnconstrainedWidth
+							label="Klein/groot/uitgelicht"
+							options={ options }
+							onChange={ ( { selectedItem } ) => setAttributes({variant: selectedItem.key }) }
+							value={ options.find( ( option ) => option.key === attributes.variant ) }
+						/>
+					</PanelBody>
 					<PanelBody title='Blok opties' initialOpen={true}>
-					<RadioControl
-						label="Volgorde"
-						help="Links tekst en rechts afbeelding, of links afbeelding en rechts tekst."
-						selected={ attributes.order }
-						options={ [
-							{ label: 'Tekst - Afbeelding', value: 'TextImage' },
-							{ label: 'Afbeelding - Tekst', value: 'ImageText' },
-						] }
-						onChange={ ( value ) => setAttributes( { order: value } ) }
-					/>
+						<RadioControl
+							label="Volgorde"
+							help="Links tekst en rechts afbeelding, of links afbeelding en rechts tekst."
+							selected={ attributes.order }
+							options={ [
+								{ label: 'Tekst - Afbeelding', value: 'TextImage' },
+								{ label: 'Afbeelding - Tekst', value: 'ImageText' },
+							] }
+							onChange={ ( value ) => setAttributes( { order: value } ) }
+						/>
+					</PanelBody>
+					<PanelBody title='Video opties' initialOpen={true}>
+						<CheckboxControl
+							label="Video"
+							checked={ attributes.isVideo }
+							onChange={ ( isVideo ) => setAttributes( { isVideo } ) }
+						/>
+
+						{attributes.isVideo && (
+							<TextControl className="blocks-base-control__input"
+								label={"YouTube link"}
+								value={attributes.videoLink}
+								onChange={(val) => setAttributes({videoLink: val})}
+							/>
+						)}
 					</PanelBody>
 					<PanelBody
 						title={__('Selecteer afbeelding', 'awp')}
@@ -127,58 +166,190 @@ export function Edit(props) {
 					</PanelBody>
 				</Panel>
 			</InspectorControls>
-			<div class="text-image-container">
-				<div className={attributes.order == 'TextImage' ? 'row content-row' : 'row content-row image-text'}>
-					<div class="col-6 left-col">
-						<RichText
-							tagName="h2"
-							className="title-edit"
-							value={ attributes.title }
-							allowedFormats={ [] }
-							onChange={ ( title ) => setAttributes( { title } ) }
-							placeholder={ __( 'Titel...' ) }
-						/>
-						<div {...innerBlocksProps}>
-							<InnerBlocks allowedBlocks={ ALLOWED_BLOCKS } />
+			
+			{attributes.variant === 'small' &&
+				<div className="text-image-container">
+					<div className={attributes.order == 'TextImage' ? 'row content-row' : 'row content-row image-text'}>
+						<div className="col-6 left-col">
+							<RichText
+								tagName="h2"
+								className="title-edit"
+								value={ attributes.title }
+								allowedFormats={ [] }
+								onChange={ ( title ) => setAttributes( { title } ) }
+								placeholder={ __( 'Titel...' ) }
+							/>
+							<div {...innerBlocksProps}>
+								<InnerBlocks allowedBlocks={ ALLOWED_BLOCKS } />
+							</div>
 						</div>
-					</div>
-					<div class="col-6">
-						<div class="p-50">
-							<div class="img-wrap">
-								<div class="img-holder">
-								<MediaUploadCheck>
-									<MediaUpload
-										onSelect={onSelectMedia}
-										value={attributes.mediaId}
-										allowedTypes={ ['image'] }
-										render={({open}) => (
-											<Button
-												onClick={open}
-												className={attributes.mediaId == 0 ? 'editor-post-featured-image__toggle' : 'editor-post-featured-image__preview'}
-											>
-												{attributes.mediaUrl != '' &&
-													<div className="media-wrap">
-														<img src={attributes.mediaUrl} />
-														<div className="select-image-overlay">
-															<span className="pseudo-btn">
-																Selecteer afbeelding
-															</span>
-														</div>
-													</div>
-												}
-												{attributes.mediaUrl == '' &&
-													<div className="no-image">Geen afbeelding geselecteerd</div>
-												}
-											</Button>
-										)}
-									/>
-								</MediaUploadCheck>
+						<div className="col-6">
+							<div className="p-50">
+								<div className="img-wrap">
+									<div className="img-holder">
+										<MediaUploadCheck>
+											<MediaUpload
+												onSelect={onSelectMedia}
+												value={attributes.mediaId}
+												allowedTypes={ ['image'] }
+												render={({open}) => (
+													<Button
+														onClick={open}
+														className={attributes.mediaId == 0 ? 'editor-post-featured-image__toggle' : 'editor-post-featured-image__preview'}
+													>
+														{attributes.mediaUrl != '' &&
+															<div className="media-wrap">
+																<img src={attributes.mediaUrl} />
+																<div className="select-image-overlay">
+																	<span className="pseudo-btn">
+																		Selecteer afbeelding
+																	</span>
+																</div>
+															</div>
+														}
+														{attributes.mediaUrl == '' &&
+															<div className="no-image">Geen afbeelding geselecteerd</div>
+														}
+													</Button>
+												)}
+											/>
+										</MediaUploadCheck>
+										{attributes.isVideo &&
+											<div className="video-btn">
+												<i className="ph-fill ph-play"></i>
+											</div>
+										}
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			}
+
+			{attributes.variant === 'large' &&
+				<div className="text-image-container text-image-container-large">
+					<div className={attributes.order == 'TextImage' ? 'row content-row' : 'row content-row image-text'}>
+						<div className="col-6 left-col">
+							<div className="content-wrap">
+								<RichText
+									tagName="h2"
+									className="title-edit"
+									value={ attributes.title }
+									allowedFormats={ [] }
+									onChange={ ( title ) => setAttributes( { title } ) }
+									placeholder={ __( 'Titel...' ) }
+								/>
+								<div {...innerBlocksProps}>
+									<InnerBlocks allowedBlocks={ ALLOWED_BLOCKS } />
+								</div>
+							</div>
+						</div>
+						<div className="col-6">
+							<div className="p-50">
+								<div className="img-wrap">
+									<div className="img-holder">
+									<MediaUploadCheck>
+										<MediaUpload
+											onSelect={onSelectMedia}
+											value={attributes.mediaId}
+											allowedTypes={ ['image'] }
+											render={({open}) => (
+												<Button
+													onClick={open}
+													className={attributes.mediaId == 0 ? 'editor-post-featured-image__toggle' : 'editor-post-featured-image__preview'}
+												>
+													{attributes.mediaUrl != '' &&
+														<div className="media-wrap">
+															<img src={attributes.mediaUrl} />
+															<div className="select-image-overlay">
+																<span className="pseudo-btn">
+																	Selecteer afbeelding
+																</span>
+															</div>
+														</div>
+													}
+													{attributes.mediaUrl == '' &&
+														<div className="no-image">Geen afbeelding geselecteerd</div>
+													}
+												</Button>
+											)}
+										/>
+									</MediaUploadCheck>
+									{attributes.isVideo &&
+										<div className="video-btn">
+											<i className="ph-fill ph-play"></i>
+										</div>
+									}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			}
+
+			{attributes.variant === 'featured' &&
+				<div className="text-image-container text-image-container-featured">
+					<div className={attributes.order == 'TextImage' ? 'row content-row' : 'row content-row image-text'}>
+						<div className="col-6 left-col">
+							<div className="content-wrap">
+								<RichText
+									tagName="h2"
+									className="title-edit"
+									value={ attributes.title }
+									allowedFormats={ [] }
+									onChange={ ( title ) => setAttributes( { title } ) }
+									placeholder={ __( 'Titel...' ) }
+								/>
+								<div {...innerBlocksProps}>
+									<InnerBlocks allowedBlocks={ ALLOWED_BLOCKS } />
+								</div>
+							</div>
+						</div>
+						<div className="col-6">
+							<div className="p-50">
+								<div className="img-wrap">
+									<div className="img-holder">
+									<MediaUploadCheck>
+										<MediaUpload
+											onSelect={onSelectMedia}
+											value={attributes.mediaId}
+											allowedTypes={ ['image'] }
+											render={({open}) => (
+												<Button
+													onClick={open}
+													className={attributes.mediaId == 0 ? 'editor-post-featured-image__toggle' : 'editor-post-featured-image__preview'}
+												>
+													{attributes.mediaUrl != '' &&
+														<div className="media-wrap">
+															<img src={attributes.mediaUrl} />
+															<div className="select-image-overlay">
+																<span className="pseudo-btn">
+																	Selecteer afbeelding
+																</span>
+															</div>
+														</div>
+													}
+													{attributes.mediaUrl == '' &&
+														<div className="no-image">Geen afbeelding geselecteerd</div>
+													}
+												</Button>
+											)}
+										/>
+									</MediaUploadCheck>
+									{attributes.isVideo &&
+										<div className="video-btn">
+											<i className="ph-fill ph-play"></i>
+										</div>
+									}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			}
 		</div>
 	)
 }

@@ -1,7 +1,7 @@
         <footer>
             <div class="container">
                 <div class="row footer-top">
-                    <div class="col-3 column-logo">
+                    <div class="col-lg-2 col-sm-6 column-logo">
                         <?php
                             if (function_exists('the_custom_logo')) {
                                 $custom_logo_id = get_theme_mod('custom_logo');
@@ -11,12 +11,12 @@
                         <img class="logo" src="<?=$logo[0] ?>" alt="Logo - Theaterkoor VOG" title="Logo - Theaterkoor VOG">
                         
                     </div>
-                    <div class="col-4 column-contact-details">
+                    <div class="col-lg-4 col-sm-6 column-contact-details">
                         <div class="contact-info">
                             <?php include('inc/contact-info.php'); ?>
                         </div>
                     </div>
-                    <div class="col-3 column-links">
+                    <div class="col-lg-4 column-links">
                         <menu>
                             <?php
                                 wp_nav_menu(
@@ -30,7 +30,7 @@
                             ?>
                         </menu>
                     </div>
-                    <div class="col-2 column-socials">
+                    <div class="col-lg-2 column-socials">
                         <div class="socials">
                             <?php
                                 wp_nav_menu(
@@ -47,7 +47,7 @@
                     </div>
                 </div>
                 <div class="endpage">
-                    <?= date("Y") ?> <span class="year"></span> - Theaterkoor VOG.<br>Website door <a href="https://neonwebstudio.nl" target="_blank" title="Ga naar de website van Neonweb Studio">Arne Reijntjes - Neonweb Studio</a>.
+                    <?= date("Y") ?> <span class="year"></span> - Theaterkoor VOG.<br>Website door <a href="https://neonwebstudio.nl" target="_blank" title="Ga naar de website van Neonweb Studio">Arne Reijntjes - Neonweb</a>.
                 </div>
             </div>
         </footer>

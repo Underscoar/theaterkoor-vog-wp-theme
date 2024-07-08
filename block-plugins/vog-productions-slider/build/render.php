@@ -26,7 +26,7 @@
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="container sub-container">
             <div class="swiper productions">
                 <div class="swiper-wrapper">
                     <?php echo $content; ?>

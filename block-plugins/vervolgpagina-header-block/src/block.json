@@ -1,0 +1,55 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "create-block/vervolgpagina-header-block",
+	"version": "0.1.0",
+	"title": "Vervolgpagina Header",
+	"category": "theaterkoorvog-blocks",
+	"icon": "admin-home",
+	"description": "Standaard blok voor de header van een vervolgpagina.",
+	"example": {},
+	"supports": {
+		"html": false,
+		"align": true
+	},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "Paginatitel"
+		},
+		"subtitle": {
+			"type": "string",
+			"default": "Subtitel"
+		},
+		"content": {
+			"type": "string",
+			"default": ""
+		},
+		"mediaId": {
+			"type": "number",
+			"default": 0
+		},
+		"mediaUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"mediaWidth": {
+			"type": "number",
+			"default": 0
+		},
+		"mediaHeight": {
+			"type": "number",
+			"default": 0
+		},
+		"innerBlocks": {
+			"type": "array",
+			"default": []
+		}
+	},
+	"textdomain": "vervolgpagina-header-block",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

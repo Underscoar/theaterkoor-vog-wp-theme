@@ -5,12 +5,10 @@
 ?>
 
 <section class="agenda-items" <?php echo get_block_wrapper_attributes(); ?>>
+    <?php if ($attributes['showTitle']) { ?>
     <h2><?php echo $attributes['title']; ?></h2>
+    <?php } ?>
     <?php
-        // $args = array(
-        //     'post_type' => 'vog_agenda',
-        //     'posts_per_page' => 3,
-        // );
         $today = date('Ymd');
         $args = array (
             'post_type' => 'vog_agenda',
@@ -43,13 +41,13 @@
             <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
                 <?php $post = get_post(); ?>
                 <div class="agenda-item">
-                    <div class="img-wrap">					
+                    <a class="img-wrap" href="<?php the_permalink(); ?>">					
                         <?php if ( get_the_post_thumbnail() ) {							 
                             the_post_thumbnail();
                         } else { ?>
                             <div class="no-img-grey"></div>
                         <?php } ?>
-                    </div>
+                    </a>
                     <div class="content-wrap">
                         <div class="content-top">
                             <h3><?php the_title(); ?></h3>
@@ -96,11 +94,13 @@
         <!-- GEEN ITEMS OFZO --> 
     <?php endif; ?>
 
-    <div class="go-to-posts-wrap">
-        <a href="/agenda" class="btn btn-primary btn-bordered">
-            <i class="ph ph-calendar-dots"></i>
-            Hele agenda bekijken
-        </a>
-    </div>
+    <?php if ($attributes['showAgendaLink']) { ?>
+        <div class="go-to-posts-wrap">
+            <a href="/agenda" class="btn btn-primary btn-bordered">
+                <i class="ph ph-calendar-dots"></i>
+                Hele agenda bekijken
+            </a>
+        </div>
+    <?php } ?>
     
 </section>

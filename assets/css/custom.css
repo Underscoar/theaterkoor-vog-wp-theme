@@ -80,7 +80,7 @@
 
 @media only screen and (max-width: 767px) {
     .container-small { max-width: 540px; }
-    .btn { font-size: 0.875rem; padding: 0.75rem 1rem; }
+    .btn { font-size: 0.875rem; }
 
     .in-pseudo-container.col-md-6 { max-width: 100%; }
     .in-pseudo-container.col-md-6:nth-child(1) { margin-left: 0; }

@@ -12,7 +12,7 @@ import { __ } from '@wordpress/i18n';
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
 import { useBlockProps, useInnerBlocksProps, InspectorControls, InnerBlocks, MediaUpload, MediaUploadCheck, RichText } from '@wordpress/block-editor';
-import { Panel, PanelBody, CustomSelectControl, RadioControl, ResponsiveWrapper, Button, Spinner } from '@wordpress/components';
+import { Panel, PanelBody, CustomSelectControl, CheckboxControl, ResponsiveWrapper, Button, Spinner } from '@wordpress/components';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -36,18 +36,42 @@ export function Edit(props) {
 
 	return (
 		<div {...blockProps}>
+			<InspectorControls key="setting">
+				<Panel>
+					<PanelBody title='Blok opties' initialOpen={true}>
+						<CheckboxControl
+							label="Laat titel zien"
+							checked={ attributes.showTitle }
+							onChange={ ( showTitle ) => setAttributes( { showTitle } ) }
+						/>
+						<CheckboxControl
+							label="Laat alle berichten zien"
+							help="Als dit geselecteerd is, worden alle berichten getoond (maximaal 100). Anders worden er 3 getoond."
+							checked={ attributes.showAll }
+							onChange={ ( showAll ) => setAttributes( { showAll } ) }
+						/>
+					</PanelBody>
+				</Panel>
+			</InspectorControls>
 			<div className="agenda-items-view">
 				<div className="container">
-					<RichText
-						tagName="h2"
-						className="title-edit"
-						value={ attributes.title }
-						allowedFormats={ [] }
-						onChange={ ( title ) => setAttributes( { title } ) }
-						placeholder={ __( 'Slider titel...' ) }
-					/>
+					{attributes.showTitle && (
+						<RichText
+							tagName="h2"
+							className="title-edit"
+							value={ attributes.title }
+							allowedFormats={ [] }
+							onChange={ ( title ) => setAttributes( { title } ) }
+							placeholder={ __( 'Slider titel...' ) }
+						/>
+					)}
 					<div className="items">
-						<em>Hier worden de laatste 3 blog items getoond.</em>
+						{!attributes.showAll && (
+							<em>Hier worden de laatste 3 blog items getoond.</em>
+						)}
+						{attributes.showAll && (
+							<em>Hier worden alle blog items getoond.</em>
+						)}
 					</div>
 				</div>
 			</div>
