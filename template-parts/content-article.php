@@ -21,7 +21,7 @@
 <div class="container">
     <div class="post-wrap">
         <div class="back-btn-wrap">
-            <a class="btn btn-primary" href="/blog"><i class="ph ph-arrow-left"></i>Terug naar blog/nieuws</a>
+            <a class="btn btn-primary" href="/nieuws-blog"><i class="ph ph-arrow-left"></i>Terug naar blog/nieuws</a>
         </div>
         <h1><?php the_title(); ?></h1>
         <span class="blog-date"><?php the_date(); ?></span>

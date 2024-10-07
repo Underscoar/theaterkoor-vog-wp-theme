@@ -36,6 +36,7 @@
                 );
 
                 $date_string = get_field( 'event_date' );
+                $end_date_string = get_field( 'event_end_date' );
                 if (is_string($date_string) && $date_string !== '') {
             ?>
                 <div class="attribute">
@@ -45,6 +46,13 @@
                         $time = $date->format( 'U' );
 
                         echo datefmt_format($fmt, $time);
+
+                        if (is_string($end_date_string) && $end_date_string !== '') {
+                            $end_date = DateTime::createFromFormat( 'Ymd', $end_date_string );
+                            $end_time = $end_date->format( 'U' );
+
+                            echo ' - ' . datefmt_format($fmt, $end_time);
+                        }
                     ?>
                 </div>
             <?php } ?>
