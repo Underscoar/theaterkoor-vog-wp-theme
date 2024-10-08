@@ -22,6 +22,14 @@
 						if ($content) {
 							$dom = new DOMDocument();
 							$dom->loadHTML($content, LIBXML_HTML_NODEFDTD);
+							if ($dom->encoding === null) {
+								$dom->loadHTML('<?xml encoding="utf-8" ?>' . $content);
+								$node = $dom->firstChild;
+								while (!($node instanceof DOMProcessingInstruction)) {
+									$node = $node->nextSibling;
+								}
+								$node->parentNode->removeChild($node);
+							}
 							$paragraphs = $dom->getElementsByTagName('*');
 							
 							foreach ($paragraphs as $paragraph) {
